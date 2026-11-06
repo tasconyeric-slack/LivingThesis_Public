@@ -1,0 +1,58 @@
+{
+  "statement": "NVIDIA 的 AI 基础设施增长依赖持续需求与 Rubin 按期量产。",
+  "falsifiers": ["Rubin 时间表被修订"],
+  "drivers": [
+    {
+      "title": "收入持续性",
+      "statement": "收入增长需要持续需求支持。",
+      "falsifiers": [],
+      "what_to_watch": "可比口径的已报告收入与需求持续性。"
+    },
+    {
+      "title": "Rubin 量产执行",
+      "statement": "Rubin 按既定时间表实现量产。",
+      "falsifiers": ["Rubin 时间表被修订"],
+      "what_to_watch": "Rubin 时间表与任何已宣布的修订。"
+    },
+    {
+      "title": "盈利预期修订",
+      "statement": "盈利预期需要支持投资逻辑。",
+      "falsifiers": [],
+      "what_to_watch": "可比口径的盈利预期；此示例中仍未解决。"
+    },
+    {
+      "title": "中国市场准入",
+      "statement": "中国市场准入需要持续。",
+      "falsifiers": [],
+      "what_to_watch": "有关中国市场准入的文件证据。"
+    }
+  ],
+  "events": {
+    "irrelevant": {
+      "information": "合成示例：办公家具时间表更新",
+      "source": "合成场景 · 并非真实 NVIDIA 公告"
+    },
+    "rubin": {
+      "information": "合成示例：Rubin 时间表推迟",
+      "source": "合成场景 · 并非真实 NVIDIA 公告"
+    }
+  },
+  "reasoning": "所提供的合成观察与此前的执行时间表矛盾。",
+  "driver_reasoning": "受影响的执行假设依赖此前的时间表。",
+  "proposed_change": {
+    "action": "revise",
+    "revised_statement": "Rubin 执行需要采用更晚的时间表，并进一步审核。",
+    "reason": "新的合成时间表改变了执行前提。"
+  },
+  "what_to_watch": ["下一次 Rubin 时间表更新。"],
+  "explanations": {
+    "irrelevant_reasoning": "办公家具时间表与四个投资驱动因素均无关。",
+    "irrelevant_changes": ["没有投资假设改变，没有重复研究。"],
+    "irrelevant_reason": "没有相关证据。",
+    "rubin_changes": [
+      "合成示例的 Rubin 时间表从九月移至十二月。",
+      "此前的执行时间表受到反证。收入持续性、盈利预期和中国市场准入没有新证据。",
+      "仅复查两个 Rubin 研究问题，其余四个保留。"
+    ]
+  }
+}

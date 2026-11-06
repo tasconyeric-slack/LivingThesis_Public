@@ -1,0 +1,73 @@
+import { baseline, localized, monitorabilityMap } from "./baseline.js";
+import { translate } from "./i18n.js";
+const escape = value => String(value ?? "").replace(/[&<>"']/g,
+  c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+function helpers(language) {
+  return { tr: (key, params) => escape(translate(language, key, params)),
+    text: value => escape(localized(value, language)),
+    list: items => `<ul class="plain-list">${items.map(item => `<li>${escape(item)}</li>`).join("")}</ul>` };
+}
+const CAPABILITY_NOTE = "Signed-in investors who adopt the Owner-approved NVIDIA baseline can run Check for Updates on NVIDIA's SEC filings on demand. Otherwise, explore the workflow with the {demo} or evidence you provide manually; manually supplied sources are not independently verified.";
+// The synthetic demo is a demoted, optional entry: an inline link inside the
+// capability note, not a button competing with the NVIDIA thesis card below.
+export function capabilityNote(language, disabled = false) {
+  const { tr } = helpers(language);
+  const marker = "\u0001";
+  const [before, after] = translate(language, CAPABILITY_NOTE, { demo: marker }).split(marker);
+  return `<p class="capability-note">${escape(before)}<button type="button" class="text-link" data-action="demo" ${disabled ? "disabled" : ""}>${tr("synthetic demo")}</button>${escape(after)}</p>`;
+}
+export function productIntro(language, { disabled = false } = {}) {
+  const { tr } = helpers(language);
+  return `<section class="product-intro" aria-labelledby="value-heading"><p class="eyebrow">LIVING THESIS</p><h1 id="value-heading">${tr("Let new information test your investment thesis.")}</h1><p>${tr("Record why you believe in a company, which facts support your view, and what could overturn it.")}</p><p>${tr("When you supply new evidence, AI identifies affected assumptions and suggests whether to revise your thesis. The final decision is yours.")}</p><ol class="value-steps"><li><span>01 · ${tr("Your judgment")}</span><p>${tr("Your investment view and the conditions behind it")}</p></li><li><span>02 · ${tr("New evidence")}</span><p>${tr("Which conditions changed, and where evidence is missing")}</p></li><li><span>03 · ${tr("Human decision")}</span><p>${tr("Maintain, revise or keep watching")}</p></li></ol>${capabilityNote(language, disabled)}</section>`;
+}
+// Approval is a recorded fact, never a default: anything but an explicit owner_approved receipt is pending.
+const isApproved = provenance => provenance.status === "owner_approved";
+// Separate from the investment statement on purpose: restoring the approved statement must not be the place a caveat lives.
+export function noticesView(language, className = "baseline-notice") {
+  const { text } = helpers(language);
+  return baseline.notices.map(notice => `<p class="${className}" role="note" data-notice="${escape(notice.id)}">${text(notice.text)}</p>`).join("");
+}
+const PART_HEADINGS = { reported_disclosure: "Reported disclosure", forward_looking_assumption: "Forward-looking assumption",
+  relevance_for_review: "Relevance · for human review", falsifier_status: "Falsifier status" };
+// A dated, cited fact kept apart from the approved thesis text. It adds no condition and is never part of a Standing.
+export function contextNoteView(note, language) {
+  const { tr, text } = helpers(language);
+  const status = isApproved(baseline.provenance) ? tr("Owner-approved baseline") : tr("Pending Owner approval");
+  const parts = note.parts.map(part => `<dt>${tr(PART_HEADINGS[part.kind])}${part.kind === "reported_disclosure" ? ` · ${escape(note.publishedAt)}` : ""}</dt><dd>${text(part.text)}${part.quote ? `<blockquote>${escape(part.quote)}</blockquote>` : ""}</dd>`).join("");
+  return `<aside class="context-note" id="${escape(note.id)}" aria-labelledby="${escape(note.id)}-title" data-context-note="${escape(note.id)}"><div class="card-top"><h4 id="${escape(note.id)}-title">${text(note.title)}</h4><span class="pill amber">${status}</span></div><p class="field-note">${tr("Separate from the approved thesis text. It adds no condition and is not part of an adopted Standing Thesis.")}</p><dl>${parts}</dl><p class="field-note">${tr("Source")}: <a href="${escape(note.citation.url)}" target="_blank" rel="noopener noreferrer">${text(note.citation.document)} ↗</a> · ${tr("Filed / published")} ${escape(note.publishedAt)} · ${tr("Reading basis")}: <a href="#${escape(note.sourceId)}">${escape(note.sourceId)}</a></p></aside>`;
+}
+// Pinned first on the home list until the investor adopts it as their NVDA workspace.
+export function baselineTile(language) {
+  const { tr, text } = helpers(language);
+  const rows = monitorabilityMap(baseline.drivers);
+  const gaps = rows.filter(row => row.coverage !== "reported_only").length;
+  const status = isApproved(baseline.provenance) ? tr("Owner baseline · read-only") : tr("Pending Owner approval · read-only");
+  return `<article class="thesis-tile baseline-tile"><div class="card-top"><h2><button type="button" class="tile-link" data-action="baseline">NVDA</button></h2><span class="pill amber">${status}</span></div><p class="thesis-text">${text(baseline.statement)}</p>${noticesView(language, "baseline-notice field-note")}<h3>${tr("Key Drivers")}</h3><div class="preview-tags">${baseline.drivers.map(d => `<span>${text(d.title)}</span>`).join("")}</div><h3>${tr("Monitorability Map")}</h3><p>${tr("{count} of {total} falsifiers have monitoring gaps", { count: gaps, total: rows.length })}</p><p class="field-note">${tr("Read it, then adopt it as your own NVDA workspace.")}</p></article>`;
+}
+export function provenanceView(language, provenance = baseline.provenance) {
+  const { tr } = helpers(language), original = provenance.approvedArtifact;
+  const approved = isApproved(provenance);
+  return `<details class="provenance"><summary>${tr("Provenance and approval")}</summary><p>${approved ? tr("The Owner approved this exact content. Its hash is recorded below.") : tr("English drivers, conditions, Watch Items and boundaries restore the Owner-approved original listed below word for word. The Chinese wording and the reconciled presentation are pending Owner approval. No new investment research or judgment was added.")}</p><dl><dt>${tr("Approval status")}</dt><dd>${approved ? tr("Owner-approved") : tr("Pending Owner approval")}</dd><dt>${tr("Approved original")}</dt><dd>${escape(original.id)} · ${escape(original.asOf)}<code>SHA-256 ${escape(original.contentSha256)}</code></dd><dt>${tr("This version")}</dt><dd><code>SHA-256 ${escape(provenance.contentSha256)}</code></dd></dl></details>`;
+}
+export function monitorabilityView(rows, language) {
+  const { tr, text } = helpers(language);
+  const statuses = { partial: "Partial coverage · monitoring gap", reported_only: "Disclosed facts only", gap: "Monitoring gap · no source mapping" };
+  const signals = { mid_weak: tr("Mid-weak signal"), weak: tr("Weak signal") };
+  const windowLine = row => !row.windowDeclared ? "" : `<span class="window">${tr("Review window")}: ${row.reviewQuarters ? tr("Next {count} quarterly disclosures", { count: row.reviewQuarters }) : tr("Not specified in the approved text · Owner to confirm")}</span>`;
+  const heading = row => String(row.falsifierId).startsWith(`${row.driverId}.`) ? row.falsifierId : `${row.driverId} · ${row.falsifierId}`;
+  const watchLine = (row, watch) => `<p><strong>${escape(watch.id)}</strong> · ${text(watch.question)}${row.gapWatches.includes(watch) ? ` <span class="gap-note">${tr("Monitoring gap · no source connected")}</span>` : ""}</p>`;
+  return `<section class="monitor-map" aria-labelledby="monitorability-heading"><h2 id="monitorability-heading">${tr("Monitorability Map")}</h2><p>${tr("This map links each falsifier to a Watch Item and a source family. Every current input is manual; no source is automatically monitored.")}</p><div class="monitorability-rows">${rows.map(row => `<article class="monitor-row"><div class="card-top"><h3>${escape(heading(row))}</h3><span class="pill amber">${tr(statuses[row.coverage])}</span></div><dl><dt>${tr("What would falsify it")}</dt><dd>${text(row.condition) || tr("No falsifier supplied")}${row.signal ? ` <span class="pill amber">${signals[row.signal]}</span>` : ""}${windowLine(row)}</dd><dt>${tr("Watch Item → Source family")}</dt><dd>${row.watchItems.length ? row.watchItems.map(watch => watchLine(row, watch)).join("") : tr("This thesis has no structured Watch Item/source mapping yet.")}${row.sourceIds.length ? `<p>${row.sourceIds.map(id => text(baseline.families[id].title)).join(" · ")} · ${tr("Manual input only")}</p>` : ""}</dd><dt>${tr("Currently observable")}</dt><dd>${row.monitoredWatches.map(watch => text(watch.observationScope)).filter(Boolean).join(" ") || (row.watchItems.length ? tr("No listed NVIDIA source can currently observe this condition.") : tr("Only the text you supply; source coverage is unverified."))}</dd><dt>${tr("Missing sources / monitoring gaps")}</dt><dd>${row.gapWatches.length ? row.gapWatches.map(watch => `<p><strong>${escape(watch.id)}</strong> · ${text(watch.title)}${watch.gapReason ? `: ${text(watch.gapReason)}` : ""}</p>`).join("") : row.coverage === "gap" ? tr("No mapped source family. Do not treat this condition as monitored.") : tr("No additional family needed to read these public disclosures; disclosure limits still apply.")}${row.incomplete && row.coverage !== "gap" ? `<p>${tr("Some Watch Item or source-family links are missing or unavailable.")}</p>` : ""}</dd><dt>${tr("Cannot independently verify")}</dt><dd>${row.watchItems.map(watch => text(watch.cannotVerify)).filter(Boolean).join(" ") || tr("A supplied source label or exact quote does not independently verify the underlying fact.")}</dd></dl></article>`).join("")}</div></section>`;
+}
+// Adoption is server-side and needs an account: the server builds Standing v1 and records its lineage.
+function adoptionView(adoption, button, tr) {
+  if (adoption === "signed_in") return `${button("Adopt this baseline as my NVDA workspace →", "adopt-baseline", "primary")}<p class="field-note">${tr("Adopting keeps the approved text and monitoring rules exactly and enables Check for Updates on NVIDIA's SEC filings. Editing the drivers instead creates your own thesis, which Check for Updates does not monitor.")}</p>`;
+  if (adoption === "signed_out") return `${button("Sign in to adopt with Check for Updates", "adopt-baseline", "primary")}<p class="field-note">${tr("Check for Updates needs an account, because results and decisions are saved to your workspace.")}</p>`;
+  return "";
+}
+export function baselineView(language, button, { adoption = "unavailable" } = {}) {
+  const { tr, text, list } = helpers(language);
+  const signals = { mid_weak: tr("Mid-weak signal"), weak: tr("Weak signal") };
+  const condition = f => `<li><strong>${escape(f.id)}</strong> · ${text(f.condition)}${f.signal ? ` <span class="pill amber">${signals[f.signal]}</span>` : ""}</li>`;
+  const watch = w => `<li><strong>${escape(w.id)}</strong> · ${text(w.title)}${w.sourceFamilies.length ? "" : ` <span class="gap-note">${tr("Monitoring gap · no source connected")}</span>`}</li>`;
+  return `<div class="workspace-heading"><div><p class="eyebrow">NVIDIA · PRODUCT BASELINE</p><h1>${tr("NVIDIA Standing Thesis")}</h1><p>${tr("Real-company hypothesis · separate from the synthetic demo")}</p></div>${button("← My Theses", "home", "quiet")}</div><article class="standing-card"><div class="card-top"><h2>${tr("Standing Thesis")} · v${baseline.version}</h2><span class="pill amber">${tr(isApproved(baseline.provenance) ? "Owner-approved baseline" : "Pending Owner approval")}</span></div><p class="thesis-text">${text(baseline.statement)}</p>${noticesView(language)}<p class="field-note">${tr("Approved content as of")}: ${escape(baseline.asOf)} · ${tr("Reconciled")}: ${escape(baseline.reconciledAt)} · ${tr("Source reading cutoff")}: ${escape(baseline.evidenceThrough)}</p><p class="field-note">${tr("Each condition has its own review window, counted forward from the approved content date. A signal prompts human review; only your explicit decision changes a Standing Thesis.")}</p><p class="field-note">${tr("Based only on the listed disclosures. Later updates have not been checked by this system. These falsifiers are review rules, not company guidance.")}</p>${provenanceView(language)}${adoptionView(adoption, button, tr)}${button("Review and use this thesis →", "review-baseline", "secondary")} ${button("View the recorded Historical Replay →", "replay", "secondary")}<p class="field-note">${tr("Review or edit the five drivers, then explicitly confirm your own Standing Thesis before adding evidence.")}</p></article><div class="drivers-head"><h2>${tr("Key Drivers")}</h2><span>${tr("5 assumptions")}</span></div><div class="baseline-drivers">${baseline.drivers.map(d => `<article class="driver-card"><h3>${escape(d.id)} · ${text(d.title)}</h3><p>${text(d.statement)}</p><h4>${tr("Core assumption")}</h4><p>${text(d.coreAssumption)}</p><h4>${tr("Why it matters")}</h4><p>${text(d.importance)}</p><h4>${tr("Falsifiers / weakening signals")}</h4><ul class="plain-list">${d.falsifiers.map(condition).join("")}</ul><h4>${tr("What to Watch")}</h4><p>${text(d.whatToWatch)}</p><h4>${tr("Watch Items")}</h4><ul class="plain-list">${d.watchItems.map(watch).join("")}</ul>${baseline.contextNotes.filter(note => note.driverId === d.id).map(note => contextNoteView(note, language)).join("")}<p class="field-note">${tr("Reading basis")}: ${d.sourceIds.map(id => `<a href="#${escape(id)}">${escape(id)}</a>`).join(" · ")}</p></article>`).join("")}</div>${monitorabilityView(monitorabilityMap(baseline.drivers), language)}<section class="baseline-boundaries"><h2>${tr("Boundaries and limits")}</h2>${list(baseline.boundaries.map(b => localized(b, language)))}</section><section class="baseline-sources"><h2>${tr("Primary-source reading basis")}</h2><p>${tr("Manually reviewed reference documents, not an automated evidence feed. Company disclosures and investment assumptions are kept separate.")}</p>${baseline.sources.map(source => `<article id="${escape(source.id)}"><h3><a href="${escape(source.url)}" target="_blank" rel="noopener noreferrer">${text(source.title)} ↗</a></h3><p class="field-note">${escape(source.id)} · ${tr("Filed / published")} ${escape(source.publishedAt)}</p><p>${text(source.summary)}</p>${source.reference ? `<p>${tr("D4 reference")}: ${escape(source.reference.period)} · ${escape(source.reference.metric)} ${escape(source.reference.value.toFixed(1))}%</p><blockquote>${escape(source.reference.quote)}</blockquote>` : ""}</article>`).join("")}</section>`;
+}

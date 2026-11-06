@@ -1,0 +1,434 @@
+{
+  "schema_version": "check-standing-0.1",
+  "baseline_id": "NVDA_T0_SCENARIO_H20_2025",
+  "baseline_content_sha256": "d3eacf6a8065571821368f1e13b6d9832fe1fa82614ba9f44703169b65fa60f3",
+  "version": 1,
+  "as_of": "2025-04-15",
+  "evidence_through": "2025-04-14",
+  "statement": "NVIDIA's AI infrastructure platform can sustain attractive growth and economics if demand remains durable, architecture transitions execute on time, its software and system advantages withstand substitution, and market access remains commercially meaningful, especially in China. These assumptions require separate evidence; a product or earnings headline alone does not justify rewriting the thesis.",
+  "notices": [
+    "This NVIDIA baseline is not a stock valuation or a buy/sell recommendation.",
+    "Historical T0 scenario H20_2025: not the Owner's thesis and not an Owner-approved historical belief."
+  ],
+  "boundaries": [
+    "This is a labelled historical T0 scenario used to exercise the evidence check on an earlier real filing.",
+    "Its wording was written after T0 and copied from the Owner-approved Watch Items; it is a test lens, not evidence of what anyone believed at T0.",
+    "No dated source, context note or later fact is included; evidence at or before T0 only."
+  ],
+  "sources": [],
+  "drivers": [
+    {
+      "driver_id": "D1",
+      "title": "AI infrastructure demand durability",
+      "statement": "Durable AI infrastructure demand can support NVIDIA Data Center growth.",
+      "core_assumption": "Customer deployment demand persists beyond a single purchasing cycle; NVIDIA's disclosures are an incomplete proxy for customer economics. Aggregate demand for AI training and inference compute continues to exceed total market supply.",
+      "importance": "Product strength only produces durable growth if customers keep deploying compute.",
+      "what_to_watch": "Reported Data Center growth, forward guidance and management's demand/deployment commentary; compute idleness, subleasing and rental prices; Token prices and API call volumes. Independent customer utilization, returns and market-wide supply/demand remain gaps.",
+      "falsifiers": [
+        {
+          "id": "D1.F1",
+          "condition": "Over the next two quarterly disclosures, Data Center growth slows in both periods and forward guidance or management commentary indicates sustained weaker deployment demand.",
+          "review_quarters": 2,
+          "signal": null,
+          "watch_item_ids": [
+            "W1.1",
+            "W1.2",
+            "W1.4"
+          ]
+        },
+        {
+          "id": "D1.F2",
+          "condition": "Compute capacity appears idle, is offered for sublease, or is repriced lower in the market.",
+          "review_quarters": null,
+          "signal": null,
+          "watch_item_ids": [
+            "W1.3"
+          ]
+        }
+      ],
+      "watch_items": [
+        {
+          "id": "W1.1",
+          "research_need_id": "N1.1",
+          "priority": "high",
+          "trigger_kind": "mixed",
+          "title": "NVIDIA demand disclosures",
+          "question": "Do consecutive NVIDIA disclosures show slowing Data Center growth and weaker forward deployment demand?",
+          "observation_scope": "NVIDIA-reported Data Center revenue and growth, guidance and management demand/deployment commentary.",
+          "source_families": [
+            "nvidia_sec",
+            "nvidia_ir",
+            "nvidia_earnings"
+          ],
+          "monitorable": true,
+          "gap_reason": null,
+          "cannot_verify": "NVIDIA revenue growth does not independently prove customers' end demand, utilization or ROI. Absence of weak-demand language is not confirmation of this driver."
+        },
+        {
+          "id": "W1.2",
+          "research_need_id": "N1.2",
+          "priority": "high",
+          "trigger_kind": "mixed",
+          "title": "Independent customer economics",
+          "question": "Do customers' independent utilization and returns corroborate durable deployment demand?",
+          "observation_scope": "Independent customer utilization, spending commitments and returns on AI infrastructure.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "NVIDIA-only documents cannot independently observe customer utilization or returns. External customer sources are not connected.",
+          "cannot_verify": null
+        },
+        {
+          "id": "W1.3",
+          "research_need_id": "N1.3",
+          "priority": "high",
+          "trigger_kind": "mixed",
+          "title": "Compute market slack and pricing",
+          "question": "Is compute capacity idle, offered for sublease or repriced lower in the market?",
+          "observation_scope": "Comparable compute utilization, capacity subleasing and rental prices across the market; geographic scope, units and observation window require owner confirmation.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "NVIDIA-only disclosures cannot independently observe market-wide idle capacity, subleasing or compute rental prices. External compute-market sources are not connected.",
+          "cannot_verify": null
+        },
+        {
+          "id": "W1.4",
+          "research_need_id": "N1.4",
+          "priority": "high",
+          "trigger_kind": "mixed",
+          "title": "Token prices and API call volumes",
+          "question": "Do Token prices and API call volumes support durable AI training and inference demand?",
+          "observation_scope": "Token prices and API call volumes across comparable services and workloads; these are demand proxies and do not measure total training/inference compute or market supply.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "Independent Token pricing and API usage sources are not connected. NVIDIA-only materials cannot independently establish these market-wide measures.",
+          "cannot_verify": null
+        }
+      ],
+      "source_ids": [],
+      "context_notes": []
+    },
+    {
+      "driver_id": "D2",
+      "title": "Product and supply ramp execution",
+      "statement": "Architecture transitions can reach production and customer deployment without a material product gap.",
+      "core_assumption": "New-platform supply and deployment can ramp while the prior generation continues serving customers. CoWoS and HBM are the key constraints, and NVIDIA holds priority allocations in critical production capacity.",
+      "importance": "Demand cannot become revenue if production, quality or delivery fails.",
+      "what_to_watch": "Changes to NVIDIA's announced production/deployment timetable, supply constraints and transition commentary in MD&A, risk factors and earnings materials. TSMC CoWoS monthly capacity and expansion plans, NVIDIA's share of CoWoS allocations, and HBM supply/allocation constraints. Independent supplier capacity and allocation data remain gaps.",
+      "falsifiers": [
+        {
+          "id": "D2.F1",
+          "condition": "In the next two quarterly updates, NVIDIA discloses a production or deployment delay of at least one quarter versus its prior announced schedule, or supply disruption that materially impairs the revenue outlook.",
+          "review_quarters": 2,
+          "signal": null,
+          "watch_item_ids": [
+            "W2.1",
+            "W2.2"
+          ]
+        }
+      ],
+      "watch_items": [
+        {
+          "id": "W2.1",
+          "research_need_id": "N2.1",
+          "priority": "high",
+          "trigger_kind": "documentary",
+          "title": "Production and deployment timetable",
+          "question": "Has NVIDIA revised its announced production/deployment schedule or disclosed a material supply disruption?",
+          "observation_scope": "NVIDIA's announced schedules and disclosed supply/transition risks; undisclosed supplier yields are not independently verified.",
+          "source_families": [
+            "nvidia_sec",
+            "nvidia_ir",
+            "nvidia_earnings"
+          ],
+          "monitorable": true,
+          "gap_reason": null,
+          "cannot_verify": "Unreported manufacturing yields and customer-site deployment progress cannot be independently checked. NVIDIA-only coverage is limited to disclosed milestones."
+        },
+        {
+          "id": "W2.2",
+          "research_need_id": "N2.2",
+          "priority": "high",
+          "trigger_kind": "mixed",
+          "title": "CoWoS capacity and NVIDIA allocation",
+          "question": "Do TSMC's CoWoS monthly capacity and expansion plans, NVIDIA's allocation share and HBM constraints support the ramp assumption?",
+          "observation_scope": "TSMC CoWoS monthly capacity and expansion plans; NVIDIA's share of CoWoS allocations; HBM capacity and priority allocations, with consistent units and periods.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "NVIDIA may discuss its own supply constraints, but NVIDIA-only materials cannot independently establish TSMC capacity or NVIDIA's allocation share. Supplier and allocation sources are not connected.",
+          "cannot_verify": null
+        }
+      ],
+      "source_ids": [],
+      "context_notes": []
+    },
+    {
+      "driver_id": "D3",
+      "title": "Software and system competitive advantage",
+      "statement": "Software adoption, system integration and switching costs can preserve NVIDIA's platform advantage.",
+      "core_assumption": "Alternative accelerators or customer-built systems do not materially displace NVIDIA across major workloads; ecosystem expansion supports adoption rather than masking weak economics.",
+      "importance": "Alternative platforms could weaken both demand and the economic value captured by NVIDIA.",
+      "what_to_watch": "NVIDIA's competition, platform adoption and pricing disclosures; independent workload migration, competitor performance and ecosystem returns remain gaps. Customer-built accelerators' performance and cost on comparable workloads, and third-party benchmark results; retain the owner's mid-weak and weak signal labels.",
+      "falsifiers": [
+        {
+          "id": "D3.F1",
+          "condition": "Within the next four quarterly disclosures, NVIDIA reports material customer workload migration, lost platform adoption or competitive pricing pressure that weakens its software/system advantage.",
+          "review_quarters": 4,
+          "signal": null,
+          "watch_item_ids": [
+            "W3.1",
+            "W3.2"
+          ]
+        },
+        {
+          "id": "D3.F2",
+          "condition": "Customer-built accelerators establish a structural performance or cost advantage (mid-weak signal).",
+          "review_quarters": null,
+          "signal": "mid_weak",
+          "watch_item_ids": [
+            "W3.3"
+          ]
+        },
+        {
+          "id": "D3.F3",
+          "condition": "NVIDIA no longer leads in third-party evaluation benchmarks (weak signal).",
+          "review_quarters": null,
+          "signal": "weak",
+          "watch_item_ids": [
+            "W3.4"
+          ]
+        }
+      ],
+      "watch_items": [
+        {
+          "id": "W3.1",
+          "research_need_id": "N3.1",
+          "priority": "high",
+          "trigger_kind": "documentary",
+          "title": "NVIDIA competitive disclosures",
+          "question": "Does NVIDIA disclose material adoption loss, workload migration or competitive pricing pressure?",
+          "observation_scope": "NVIDIA's own competitive risk, adoption and pricing commentary. Company claims alone do not establish the moat.",
+          "source_families": [
+            "nvidia_sec",
+            "nvidia_ir",
+            "nvidia_earnings"
+          ],
+          "monitorable": true,
+          "gap_reason": null,
+          "cannot_verify": "Company platform claims cannot independently verify market share, real workload TCO or switching costs. No disclosed migration does not prove that customers stayed."
+        },
+        {
+          "id": "W3.2",
+          "research_need_id": "N3.2",
+          "priority": "high",
+          "trigger_kind": "documentary",
+          "title": "Independent substitution evidence",
+          "question": "Do independently observed workload migrations or competitor results undermine NVIDIA's platform advantage?",
+          "observation_scope": "Independent customer migration, competitor performance and ecosystem returns.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "NVIDIA-only materials do not provide independent competitor or customer adoption evidence. Competitor and customer sources are not connected.",
+          "cannot_verify": null
+        },
+        {
+          "id": "W3.3",
+          "research_need_id": "N3.3",
+          "priority": "medium",
+          "trigger_kind": "mixed",
+          "title": "Customer-built accelerator advantage",
+          "question": "Do customer-built accelerators have a structural performance or cost advantage (mid-weak signal)?",
+          "observation_scope": "Independent customer accelerator comparisons on like-for-like workloads, performance and total cost; the structural advantage and review window require owner confirmation.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "Independent customer-built accelerator performance and cost sources are not connected. NVIDIA's own claims cannot establish or rule out a structural customer advantage.",
+          "cannot_verify": null
+        },
+        {
+          "id": "W3.4",
+          "research_need_id": "N3.4",
+          "priority": "low",
+          "trigger_kind": "mixed",
+          "title": "Third-party benchmark leadership",
+          "question": "Does NVIDIA cease to lead in third-party evaluation benchmarks (weak signal)?",
+          "observation_scope": "Independent benchmark leadership by comparable workload, hardware/software version and evaluation method; a weak signal does not automatically invalidate the driver.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "Third-party evaluation sources are not connected. NVIDIA-only materials do not independently establish benchmark leadership.",
+          "cannot_verify": null
+        }
+      ],
+      "source_ids": [],
+      "context_notes": []
+    },
+    {
+      "driver_id": "D4",
+      "title": "Profitability and gross margin durability",
+      "statement": "Platform value and product economics can sustain attractive profitability through transitions.",
+      "core_assumption": "Pricing and product mix can offset input costs and temporary transition pressure without persistent erosion of gross margin.",
+      "importance": "Revenue growth must retain economic value rather than be consumed by recurring cost or pricing pressure.",
+      "what_to_watch": "Comparable GAAP revenue, cost of revenue or gross profit in XBRL, gross margin guidance and explanations of transition effects in earnings materials.",
+      "falsifiers": [
+        {
+          "id": "D4.F1",
+          "condition": "Across the next two reported quarters, GAAP gross margin declines in both periods and NVIDIA guides to continued pressure without a stated recovery path, beyond its disclosed temporary transition effects.",
+          "review_quarters": 2,
+          "signal": null,
+          "watch_item_ids": [
+            "W4.1"
+          ]
+        }
+      ],
+      "watch_items": [
+        {
+          "id": "W4.1",
+          "research_need_id": "N4.1",
+          "priority": "high",
+          "trigger_kind": "mixed",
+          "title": "Gross margin and transition economics",
+          "question": "Do comparable GAAP margins and guidance indicate persistent compression beyond temporary transition effects?",
+          "observation_scope": "NVIDIA GAAP XBRL facts where available, validated earnings quotations and gross margin guidance; no consensus feed.",
+          "source_families": [
+            "nvidia_sec",
+            "nvidia_earnings"
+          ],
+          "monitorable": true,
+          "gap_reason": null,
+          "cannot_verify": "Reported margins do not independently establish pricing power or isolate structural causes. GAAP/non-GAAP and one-off items require comparable treatment; no automated XBRL check is running here."
+        }
+      ],
+      "source_ids": [],
+      "context_notes": []
+    },
+    {
+      "driver_id": "D5",
+      "title": "Market access, especially China",
+      "statement": "Access to the China AI infrastructure market can remain a meaningful contributor to NVIDIA's growth within regulatory and licensing constraints.",
+      "core_assumption": "Permitted products and licenses allow commercially meaningful sales in China; market-access restrictions do not persistently remove this growth opportunity.",
+      "importance": "Strong demand is insufficient when export rules, licensing or regional restrictions prevent delivery or strand inventory.",
+      "what_to_watch": "NVIDIA's disclosed China exposure, sales, licensing status and permitted-product changes; independent export-control rules, licensing decisions and implementation remain gaps.",
+      "falsifiers": [
+        {
+          "id": "D5.F1",
+          "condition": "Across the next two quarterly disclosures, NVIDIA reports regulatory or licensing constraints that prevent commercially meaningful China sales, with no disclosed recovery path.",
+          "review_quarters": 2,
+          "signal": null,
+          "watch_item_ids": [
+            "W5.1",
+            "W5.2"
+          ]
+        }
+      ],
+      "watch_items": [
+        {
+          "id": "W5.1",
+          "research_need_id": "N5.1",
+          "priority": "high",
+          "trigger_kind": "documentary",
+          "title": "NVIDIA China market-access disclosures",
+          "question": "Does NVIDIA disclose persistent licensing or regulatory constraints that prevent commercially meaningful China sales?",
+          "observation_scope": "NVIDIA's own reported China exposure, sales and revenue effects, licensing status and permitted-product changes; independent policy verification is outside this watch.",
+          "source_families": [
+            "nvidia_sec",
+            "nvidia_ir",
+            "nvidia_earnings"
+          ],
+          "monitorable": true,
+          "gap_reason": null,
+          "cannot_verify": "NVIDIA-only disclosures cannot independently establish legal interpretation, the scope of individual licenses, future approvals or customer delivery. No disclosed restriction is not proof of unrestricted access."
+        },
+        {
+          "id": "W5.2",
+          "research_need_id": "N5.2",
+          "priority": "high",
+          "trigger_kind": "documentary",
+          "title": "Independent China market-access rules",
+          "question": "Do independent export-control rules and licensing decisions corroborate the disclosed China-access risks?",
+          "observation_scope": "Official export-control rules, licensing decisions and implementation affecting China market access, independently of NVIDIA's characterization.",
+          "source_families": [],
+          "monitorable": false,
+          "gap_reason": "Official policy and licensing sources are outside this NVIDIA-only slice and are not connected. Company disclosures do not independently verify the operative rules.",
+          "cannot_verify": null
+        }
+      ],
+      "source_ids": [],
+      "context_notes": []
+    }
+  ],
+  "hosted_standing": {
+    "ticker": "NVDA",
+    "version": 1,
+    "statement": "NVIDIA's AI infrastructure platform can sustain attractive growth and economics if demand remains durable, architecture transitions execute on time, its software and system advantages withstand substitution, and market access remains commercially meaningful, especially in China. These assumptions require separate evidence; a product or earnings headline alone does not justify rewriting the thesis.",
+    "falsifiers": [
+      "Over the next two quarterly disclosures, Data Center growth slows in both periods and forward guidance or management commentary indicates sustained weaker deployment demand.",
+      "Compute capacity appears idle, is offered for sublease, or is repriced lower in the market.",
+      "In the next two quarterly updates, NVIDIA discloses a production or deployment delay of at least one quarter versus its prior announced schedule, or supply disruption that materially impairs the revenue outlook.",
+      "Within the next four quarterly disclosures, NVIDIA reports material customer workload migration, lost platform adoption or competitive pricing pressure that weakens its software/system advantage.",
+      "Customer-built accelerators establish a structural performance or cost advantage (mid-weak signal).",
+      "NVIDIA no longer leads in third-party evaluation benchmarks (weak signal).",
+      "Across the next two reported quarters, GAAP gross margin declines in both periods and NVIDIA guides to continued pressure without a stated recovery path, beyond its disclosed temporary transition effects.",
+      "Across the next two quarterly disclosures, NVIDIA reports regulatory or licensing constraints that prevent commercially meaningful China sales, with no disclosed recovery path."
+    ],
+    "drivers": [
+      {
+        "driver_id": "D1",
+        "title": "AI infrastructure demand durability",
+        "statement": "Durable AI infrastructure demand can support NVIDIA Data Center growth. Customer deployment demand persists beyond a single purchasing cycle; NVIDIA's disclosures are an incomplete proxy for customer economics. Aggregate demand for AI training and inference compute continues to exceed total market supply.",
+        "falsifiers": [
+          "Over the next two quarterly disclosures, Data Center growth slows in both periods and forward guidance or management commentary indicates sustained weaker deployment demand.",
+          "Compute capacity appears idle, is offered for sublease, or is repriced lower in the market."
+        ],
+        "what_to_watch": "Reported Data Center growth, forward guidance and management's demand/deployment commentary; compute idleness, subleasing and rental prices; Token prices and API call volumes. Independent customer utilization, returns and market-wide supply/demand remain gaps."
+      },
+      {
+        "driver_id": "D2",
+        "title": "Product and supply ramp execution",
+        "statement": "Architecture transitions can reach production and customer deployment without a material product gap. New-platform supply and deployment can ramp while the prior generation continues serving customers. CoWoS and HBM are the key constraints, and NVIDIA holds priority allocations in critical production capacity.",
+        "falsifiers": [
+          "In the next two quarterly updates, NVIDIA discloses a production or deployment delay of at least one quarter versus its prior announced schedule, or supply disruption that materially impairs the revenue outlook."
+        ],
+        "what_to_watch": "Changes to NVIDIA's announced production/deployment timetable, supply constraints and transition commentary in MD&A, risk factors and earnings materials. TSMC CoWoS monthly capacity and expansion plans, NVIDIA's share of CoWoS allocations, and HBM supply/allocation constraints. Independent supplier capacity and allocation data remain gaps."
+      },
+      {
+        "driver_id": "D3",
+        "title": "Software and system competitive advantage",
+        "statement": "Software adoption, system integration and switching costs can preserve NVIDIA's platform advantage. Alternative accelerators or customer-built systems do not materially displace NVIDIA across major workloads; ecosystem expansion supports adoption rather than masking weak economics.",
+        "falsifiers": [
+          "Within the next four quarterly disclosures, NVIDIA reports material customer workload migration, lost platform adoption or competitive pricing pressure that weakens its software/system advantage.",
+          "Customer-built accelerators establish a structural performance or cost advantage (mid-weak signal).",
+          "NVIDIA no longer leads in third-party evaluation benchmarks (weak signal)."
+        ],
+        "what_to_watch": "NVIDIA's competition, platform adoption and pricing disclosures; independent workload migration, competitor performance and ecosystem returns remain gaps. Customer-built accelerators' performance and cost on comparable workloads, and third-party benchmark results; retain the owner's mid-weak and weak signal labels."
+      },
+      {
+        "driver_id": "D4",
+        "title": "Profitability and gross margin durability",
+        "statement": "Platform value and product economics can sustain attractive profitability through transitions. Pricing and product mix can offset input costs and temporary transition pressure without persistent erosion of gross margin.",
+        "falsifiers": [
+          "Across the next two reported quarters, GAAP gross margin declines in both periods and NVIDIA guides to continued pressure without a stated recovery path, beyond its disclosed temporary transition effects."
+        ],
+        "what_to_watch": "Comparable GAAP revenue, cost of revenue or gross profit in XBRL, gross margin guidance and explanations of transition effects in earnings materials."
+      },
+      {
+        "driver_id": "D5",
+        "title": "Market access, especially China",
+        "statement": "Access to the China AI infrastructure market can remain a meaningful contributor to NVIDIA's growth within regulatory and licensing constraints. Permitted products and licenses allow commercially meaningful sales in China; market-access restrictions do not persistently remove this growth opportunity.",
+        "falsifiers": [
+          "Across the next two quarterly disclosures, NVIDIA reports regulatory or licensing constraints that prevent commercially meaningful China sales, with no disclosed recovery path."
+        ],
+        "what_to_watch": "NVIDIA's disclosed China exposure, sales, licensing status and permitted-product changes; independent export-control rules, licensing decisions and implementation remain gaps."
+      }
+    ]
+  },
+  "provenance": {
+    "kind": "historical_t0_scenario",
+    "owner_approved": false,
+    "scenario_id": "H20_2025",
+    "label": "Historical T0 scenario: the approved Watch Items applied at 2025-04-15, before NVIDIA's H20 licence 8-K",
+    "effective_at": "2025-04-15T00:00:00Z",
+    "authored_at": "2026-10-18T03:40:00Z",
+    "derived_from_content_sha256": "634b812149c40bc129221b0ba451e210319fdc17847e1b80a8c91528777150ee",
+    "derivation": "statement, drivers, falsifiers and Watch Items copied verbatim from the approved projection; sources, source_ids, context_notes and boundaries removed",
+    "rationale": "The live window (filings after 2026-08-26, accepted by 2026-10-16) holds no NVIDIA filing that answers an approved Watch Item. This scenario exercises the Watch Item-evidence path on a real earlier filing. T0 was chosen after the fact to precede a known filing, so it tests recognition and grounding, not discovery.",
+    "hindsight_note": "The Watch Item wording was authored in October 2026, after T0, and the assessing model may know later events. The scenario tests whether the cascade recognises direct Watch Item evidence; it is not a forecast test.",
+    "point_in_time_rule": "Every filing used is accepted by EDGAR at or before as_of; the scenario Standing contains no fact dated after evidence_through."
+  }
+}

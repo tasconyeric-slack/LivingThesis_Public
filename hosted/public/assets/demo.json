@@ -1,0 +1,158 @@
+{
+  "synthetic": true,
+  "origin": "v0.5.1 validated interview fixture",
+  "standing": {
+    "ticker": "NVDA",
+    "version": 1,
+    "statement": "NVIDIA's AI infrastructure growth depends on durable demand and timely Rubin ramp execution.",
+    "falsifiers": [
+      "Rubin timetable is revised"
+    ],
+    "drivers": [
+      {
+        "driver_id": "T1.D1",
+        "statement": "Revenue durability",
+        "falsifiers": [],
+        "title": "Revenue durability",
+        "what_to_watch": "Comparable reported revenue and demand durability.",
+        "research_count": 2
+      },
+      {
+        "driver_id": "T1.D2",
+        "statement": "Rubin ramp execution",
+        "falsifiers": [
+          "Rubin timetable is revised"
+        ],
+        "title": "Rubin ramp execution",
+        "what_to_watch": "Rubin timetable and any announced revision.",
+        "research_count": 2
+      },
+      {
+        "driver_id": "T1.D3",
+        "statement": "EPS revisions",
+        "falsifiers": [],
+        "title": "EPS revisions",
+        "what_to_watch": "Comparable EPS expectations; unresolved in this demo.",
+        "research_count": 1
+      },
+      {
+        "driver_id": "T1.D4",
+        "statement": "China access",
+        "falsifiers": [],
+        "title": "China access",
+        "what_to_watch": "Documentary evidence of China market access.",
+        "research_count": 1
+      }
+    ]
+  },
+  "events": {
+    "irrelevant": {
+      "event_date": "2026-09-01",
+      "information": "Synthetic Office chairs timetable",
+      "source": "Synthetic scenario · not a real NVIDIA announcement",
+      "source_text": "Synthetic Office chairs timetable was revised from September to December."
+    },
+    "rubin": {
+      "event_date": "2026-09-01",
+      "information": "Synthetic Rubin timetable",
+      "source": "Synthetic scenario · not a real NVIDIA announcement",
+      "source_text": "Synthetic Rubin timetable was revised from September to December."
+    }
+  },
+  "triggers": {
+    "irrelevant": {
+      "affected_driver_ids": [],
+      "affected_need_ids": [],
+      "diagnostics": {
+        "original_research_needs": 6,
+        "original_retrieval_steps": 3,
+        "watch_items_matched": 0,
+        "research_needs_affected": 0,
+        "retrieval_steps_executed": 0,
+        "required_step_ids": [],
+        "executed_step_ids": [],
+        "unrelated_research_needs_rerun": 0,
+        "provider_call_count": 0,
+        "assessment_call_count": 0,
+        "planner_call_count": 0
+      }
+    },
+    "rubin": {
+      "affected_driver_ids": [
+        "T1.D2"
+      ],
+      "affected_need_ids": [
+        "N3",
+        "N4"
+      ],
+      "diagnostics": {
+        "original_research_needs": 6,
+        "original_retrieval_steps": 3,
+        "watch_items_matched": 2,
+        "research_needs_affected": 2,
+        "retrieval_steps_executed": 2,
+        "required_step_ids": [
+          "STEP_82bc8e5cff0c805c57b1",
+          "STEP_1a62a530693e193d6ce2"
+        ],
+        "executed_step_ids": [
+          "STEP_82bc8e5cff0c805c57b1",
+          "STEP_1a62a530693e193d6ce2"
+        ],
+        "unrelated_research_needs_rerun": 0,
+        "provider_call_count": 2,
+        "assessment_call_count": 0,
+        "planner_call_count": 0
+      }
+    }
+  },
+  "rubin_assessment": {
+    "relation": "contradict",
+    "reasoning": "The supplied observation contradicts the prior schedule.",
+    "driver_impacts": [
+      {
+        "driver_id": "T1.D2",
+        "relation": "contradict",
+        "materiality": "high",
+        "reasoning": "The affected driver depended on the prior schedule.",
+        "claims": [
+          {
+            "text": "The stated timetable changed.",
+            "fact_id": "f_new",
+            "citation": {
+              "evidence_id": "e_new",
+              "exact_quote": "Synthetic Rubin timetable was revised from September to December."
+            }
+          }
+        ]
+      }
+    ],
+    "proposed_change": {
+      "action": "revise",
+      "revised_statement": "Rubin execution requires a later timetable and further review.",
+      "reason": "The new issuer timetable changes the execution premise."
+    },
+    "what_to_watch": [
+      "Next Rubin timetable update."
+    ],
+    "publish_status": "validated"
+  },
+  "accepted_statement": "Rubin execution requires a later timetable and further review.",
+  "accepted_version": 2,
+  "technical": {
+    "watch_count": 6,
+    "affected_need_ids": [
+      "N3",
+      "N4"
+    ],
+    "affected_driver_ids": [
+      "T1.D2"
+    ],
+    "evidence_id": "e_new",
+    "fact_id": "f_new",
+    "synthetic_analyst_review": true,
+    "real_provider_calls": 0,
+    "real_model_calls": 0,
+    "semantic_entailment_checked": false
+  }
+}

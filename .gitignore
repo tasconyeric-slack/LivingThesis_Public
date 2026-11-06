@@ -1,0 +1,66 @@
+# Secrets and local environment configuration
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+.venv*/
+venv/
+env/
+ENV/
+
+# Python bytecode, caches, test output, and coverage
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python packages and build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# Logs, temporary files, and generic caches
+*.log
+logs/
+.cache/
+.cache*/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# OS and IDE metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.code-workspace
+
+# Hosted product tooling
+.vercel/
+.netlify/
+node_modules/
+/output/
+
+# Local model calls and smoke-test archives
+backend/output/*
+hosted/public/assets/supabase.js
+hosted/public/assets/build-info.json

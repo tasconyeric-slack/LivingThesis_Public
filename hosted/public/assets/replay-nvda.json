@@ -1,0 +1,2233 @@
+{
+ "schema_version": "replay-nvda-0.2",
+ "ticker": "NVDA",
+ "source_kind": "real_primary_source_recorded_run",
+ "synthetic": false,
+ "manifest": {
+  "note": "Run Records published in the Historical Replay. `runs`: the live check on the Owner-approved Standing, in order (first live check, its repeat at the same clock, and the reassessment that supersedes the first check's classification of the Hugging Face 8-K). `scenarios`: separately labelled historical T0 scenarios, which are not the Owner's thesis.",
+  "runs": [
+   "chk_20261018T014125Z",
+   "chk_20261018T014209Z_rerun",
+   "chk_20261018T032025Z_reassess"
+  ],
+  "scenarios": [
+   {
+    "id": "H20_2025",
+    "standing": "backend/src/living_thesis/nvda_t0_scenario_h20_2025.json",
+    "runs": [
+     "chk_20261018T032044Z_t0_h20",
+     "chk_20261018T032124Z_t0_h20_rerun"
+    ]
+   }
+  ]
+ },
+ "runs": [
+  {
+   "run_id": "chk_20261018T014125Z",
+   "run_at": "2026-10-18T01:41:25.211213Z",
+   "as_of": "2026-10-16T00:00:00Z",
+   "mode": "historical_replay",
+   "schema_version": "evidence-check-run-0.1",
+   "record_sha256": "7b6aa4a0e7fa828b1a99772389a81bab27a2f1c8d996575decf9f3239b2d29ee",
+   "standing": {
+    "baseline_id": "NVDA_PRODUCT_BASELINE_V1",
+    "version": 1,
+    "baseline_content_sha256": "634b812149c40bc129221b0ba451e210319fdc17847e1b80a8c91528777150ee",
+    "check_standing_sha256": "786fa09a21eb5af82b7063b03a89fe426969278dbcc5b769a6fe521a463b0291",
+    "approval": "owner_approved (content approval recorded 2026-10-15T02:06:32Z)",
+    "evidence_through": "2026-08-26"
+   },
+   "window": {
+    "rule": "filing_date > evidence_through and every acceptance reading <= as_of",
+    "evidence_through": "2026-08-26",
+    "as_of": "2026-10-16T00:00:00Z",
+    "excluded_after_as_of_count": 0,
+    "excluded_after_as_of": []
+   },
+   "checkpoint": {
+    "path": "checkpoint.json",
+    "scope": "NVDA:sec_edgar:cik1045810",
+    "reviewed_through_before": null,
+    "reviewed_through_after": "2026-10-16T00:00:00Z",
+    "processed_before": 0,
+    "processed_after": 2,
+    "blocked_by": []
+   },
+   "funnel": {
+    "in_window": 21,
+    "fetched": 2,
+    "stage0_kept": 2,
+    "stage0_filtered": {
+     "third_party_ownership_report": 19
+    },
+    "stage0_failed": 0,
+    "relevant": 1,
+    "uncertain": 0,
+    "irrelevant": 1,
+    "proposals": 0
+   },
+   "totals": {
+    "model_calls": 3,
+    "deep_research_calls": 1,
+    "triage_calls": 2,
+    "tokens": {
+     "completion_tokens": 2370,
+     "prompt_cache_hit_tokens": 512,
+     "prompt_cache_miss_tokens": 12001,
+     "prompt_tokens": 12513,
+     "total_tokens": 14883
+    },
+    "cost": "not measured (provider pricing not verified in this run)",
+    "latency_ms": 18686
+   },
+   "prompts": {
+    "triage": {
+     "file": "backend/prompts/evidence_check_triage.md",
+     "sha256": "92410fa65eb9012ce5b8ad7f88b34f7c7ac5ffa419d769a08cec5006a236ffa8"
+    },
+    "assess": {
+     "file": "backend/prompts/evidence_check_assess.md",
+     "sha256": "c8b3b4b56bf419cf4eb2b1783ead4acd6d6619dd17b3c66e73d40ad29e116c7f"
+    }
+   },
+   "environment": {
+    "code_revision": "44193ee5a529f1e460deaa6b43aed6baa64c7d13",
+    "extractor": "stdlib-text-0.1",
+    "sec_user_agent": "configured (contact redacted)",
+    "model_knowledge_cutoff": "not observable; contamination probe deferred",
+    "nvidia_ir": "not used: investor.nvidia.com answered a Cloudflare challenge (HTTP 403) to automated requests; SEC exhibits used instead"
+   },
+   "errors": [],
+   "events": [
+    {
+     "event_id": "edgar:0001104659-26-103913",
+     "accession": "0001104659-26-103913",
+     "form": "N-PX",
+     "filing_date": "2026-08-31",
+     "report_date": "2026-06-30",
+     "items": null,
+     "filer_name": "NVIDIA CORP",
+     "content_checksum": "d692ebf347f55468e8f29f70a7b7d8879c9a4f16ea386b7077a65a10ab853eee",
+     "outcome": "irrelevant_stopped",
+     "timestamps": {
+      "header_acceptance_utc": "2026-08-31T20:32:07Z",
+      "edgar_submissions_acceptance_raw": "2026-09-01T00:32:07.000Z",
+      "retrieved_at": "2026-10-18T01:41:26.958949+00:00"
+     },
+     "stage0": {
+      "result": "candidate",
+      "reason": "eligible_issuer_document"
+     },
+     "sources": [
+      {
+       "source_id": "sec:0001104659-26-103913:primary_doc.xml",
+       "filename": "primary_doc.xml",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000110465926103913/primary_doc.xml",
+       "sha256": "1fb715d2926e58b4e1d23e038fb9ed24b431d737ac91395c4d277f3b79e99fef",
+       "bytes": 2012,
+       "retrieved_at": "2026-10-18T01:41:26.958949+00:00",
+       "text_sha256": "04612d77a44ad95b2db83c678db48e4157124e58e3f0a29484e43b323948232b"
+      },
+      {
+       "source_id": "sec:0001104659-26-103913:proxytable.xml",
+       "filename": "proxytable.xml",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000110465926103913/proxytable.xml",
+       "sha256": "88d0c2a730e4fc24afdfb725e07a182a63a106651d547ac55ee350fb72c85bd7",
+       "bytes": 3429,
+       "retrieved_at": "2026-10-18T01:41:27.281122+00:00",
+       "text_sha256": "45d2f14050926d55027ff9e14411a78d7205b4f11266892e9c123db722cdc7e3"
+      }
+     ],
+     "stage1": {
+      "result": "irrelevant",
+      "contract": "triage-context-0.1",
+      "validation_errors": [],
+      "output": {
+       "relevance": "irrelevant",
+       "watch_item_ids": [],
+       "rationale": "N-PX institutional-manager voting report covering say-on-pay votes for several issuers (Applied Digital, CoreWeave, Intel, Marvell, Synopsys) with zero shares voted. It reports no NVIDIA demand, supply, competitive, margin or China information bearing on any Watch Item; customer/competitor names alone do not create relevance.",
+       "evidence_quotes": []
+      },
+      "quote_bindings": []
+     },
+     "research": {
+      "executed": false,
+      "deep_research_calls": 0,
+      "reason": "stage1_irrelevant"
+     }
+    },
+    {
+     "event_id": "edgar:0001045810-26-000078",
+     "accession": "0001045810-26-000078",
+     "form": "8-K",
+     "filing_date": "2026-09-03",
+     "report_date": "2026-09-02",
+     "items": "8.01",
+     "filer_name": "NVIDIA CORP",
+     "content_checksum": "f1994fe7bca9b7b2e8a611ad1dbd5319e9564ba593d4698af0d2b971ccdd13e2",
+     "outcome": "assessed_validated",
+     "decision_status": "awaiting_owner_decision",
+     "timestamps": {
+      "header_acceptance_utc": "2026-09-03T12:03:56Z",
+      "edgar_submissions_acceptance_raw": "2026-09-03T16:03:56.000Z",
+      "retrieved_at": "2026-10-18T01:41:29.634360+00:00"
+     },
+     "stage0": {
+      "result": "candidate",
+      "reason": "eligible_issuer_document"
+     },
+     "sources": [
+      {
+       "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+       "filename": "nvda-20260902.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+       "sha256": "10b53264c5b24bb03b1e97a4ceb2ff60077b5a52f50a7070772672e2eddc51a2",
+       "bytes": 29288,
+       "retrieved_at": "2026-10-18T01:41:29.634360+00:00",
+       "text_sha256": "ca041bff0d4c0ecdc3631fa61743baaf327b51c1977da0d1f2c8a13bb7d3407b"
+      }
+     ],
+     "stage1": {
+      "result": "relevant",
+      "contract": "triage-context-0.1",
+      "validation_errors": [],
+      "output": {
+       "relevance": "relevant",
+       "watch_item_ids": [
+        "W3.1",
+        "W5.1"
+       ],
+       "rationale": "The 8-K reports NVIDIA's agreement to acquire Hugging Face and includes risk-factor language on open-source AI models and regulation, which speaks to NVIDIA's own competitive adoption and open-source ecosystem posture (W3.1). The risk language about government restrictions on models, including those originating in China, and the platform's ability to support models derived from any region bears on NVIDIA's disclosed China/open-source access risks (W5.1), though only as a disclosed risk, not a reported outcome. No reported Data Center revenue, supply/schedule revision, margin, or licensing/sales disclosure is present.",
+       "evidence_quotes": [
+        "NVIDIA has committed to, among other things, keep Hugging Face’s platform open, consistent with Hugging Face’s existing practices. Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "Demand for open-source foundation models and applications based on them promotes the use of our products worldwide and sustains the Hugging Face platform.",
+        "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition."
+       ]
+      },
+      "quote_bindings": [
+       {
+        "exact_quote": "NVIDIA has committed to, among other things, keep Hugging Face’s platform open, consistent with Hugging Face’s existing practices. Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2898
+       },
+       {
+        "exact_quote": "Demand for open-source foundation models and applications based on them promotes the use of our products worldwide and sustains the Hugging Face platform.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 3636
+       },
+       {
+        "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 4771
+       }
+      ]
+     },
+     "scope": {
+      "total_research_needs": 13,
+      "monitorable_research_needs": 5,
+      "total_drivers": 5,
+      "affected_watch_item_ids": [
+       "W3.1",
+       "W5.1"
+      ],
+      "affected_driver_ids": [
+       "D3",
+       "D5"
+      ],
+      "reopened_research_need_ids": [
+       "N3.1",
+       "N5.1"
+      ],
+      "gap_research_need_ids": [],
+      "skipped_research_need_ids": [
+       "N1.1",
+       "N1.2",
+       "N1.3",
+       "N1.4",
+       "N2.1",
+       "N2.2",
+       "N3.2",
+       "N3.3",
+       "N3.4",
+       "N4.1",
+       "N5.2"
+      ]
+     },
+     "research": {
+      "executed": true,
+      "deep_research_calls": 1,
+      "section_items": [
+       "8.01",
+       "9.01"
+      ],
+      "stated_amounts": [
+       {
+        "quoted": "$11.9 billion",
+        "value_usd": "11900000000",
+        "sentence": "The transaction includes an approximately $11.9 billion purchase price payable to Hugging Face stockholders, subject to certain adjustments, and an equity-based retention program of up to approximately $1.0 billion for Hugging Face employees joining NVIDIA."
+       },
+       {
+        "quoted": "$1.0 billion",
+        "value_usd": "1000000000",
+        "sentence": "The transaction includes an approximately $11.9 billion purchase price payable to Hugging Face stockholders, subject to certain adjustments, and an equity-based retention program of up to approximately $1.0 billion for Hugging Face employees joining NVIDIA."
+       }
+      ],
+      "derived": [
+       {
+        "formula": "$11.9 billion / Revenues (Q2 FY2027, quarter)",
+        "numerator_usd": "11900000000",
+        "denominator_usd": "96221000000",
+        "percent": "12.4"
+       },
+       {
+        "formula": "$1.0 billion / Revenues (Q2 FY2027, quarter)",
+        "numerator_usd": "1000000000",
+        "denominator_usd": "96221000000",
+        "percent": "1.0"
+       }
+      ],
+      "risk_factor_diff": {
+       "method": "normalized sentence containment against full prior 10-Q/10-K text",
+       "compared_with": [
+        {
+         "accession": "0001045810-26-000075",
+         "form": "10-Q",
+         "filing_date": "2026-08-26",
+         "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+         "sha256": "814a459771b760a37c88ecdce57b8cd559768afad74fd8ad6f6464d7b6a8c46e",
+         "text_sha256": "1d0894f0b07044b3766c6b7ff682c2f9d47e4b40c8d359ff2c14cdc3e74dd86b"
+        },
+        {
+         "accession": "0001045810-26-000021",
+         "form": "10-K",
+         "filing_date": "2026-02-25",
+         "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+         "sha256": "466830059725ffdbf75402c8b4906543c720ce7f0635dcf57177c1d6fed5fd63",
+         "text_sha256": "d19db3746df9018b19d8999adbd042b378aa41544e0245197e82c7a89f5bec8f"
+        }
+       ],
+       "sentence_count": 25,
+       "new_sentence_count": 24,
+       "present_sentence_count": 1,
+       "new_sentences": [
+        "On September 2, 2026, NVIDIA Corporation (“NVIDIA”) entered into a definitive agreement to acquire Hugging Face, Inc.",
+        "Hugging Face operates a platform and community for developing, sharing and deploying open-source models, datasets and applications.",
+        "The transaction includes an approximately $11.9 billion purchase price payable to Hugging Face stockholders, subject to certain adjustments, and an equity-based retention program of up to approximately $1.0 billion for Hugging Face employees joining NVIDIA.",
+        "The transaction is expected to close in the first half of 2027, subject to the satisfaction or waiver of customary closing conditions, including receipt of required regulatory approvals.",
+        "NVIDIA expects the acquisition to provide additional resources to Hugging Face and support developers building, sharing and deploying open models and applications.",
+        "NVIDIA has committed to, among other things, keep Hugging Face’s platform open, consistent with Hugging Face’s existing practices.",
+        "Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "Risks Related to the Proposed Acquisition of Hugging Face",
+        "The following risk factor supplements, and should be read together with, the risks relating to acquisitions and other risks described in NVIDIA’s Annual Report on Form 10-K for the fiscal year ended January 25, 2026 and subsequent Quarterly Reports on Form 10-Q.",
+        "Government restrictions may negatively impact our business and the Hugging Face platform.",
+        "Demand for open-source foundation models and applications based on them promotes the use of our products worldwide and sustains the Hugging Face platform.",
+        "We are committed to promoting the training, distribution, and use of both closed and open-source AI models and applications.",
+        "Other parties are actively lobbying the U.S.",
+        "Government and other stakeholders worldwide to adopt legislative or regulatory measures that would restrict or disadvantage open-source models and the customers of them.",
+        "Governments may impose new or additional requirements governing the development, training, release, distribution, access, transfer, deployment or use of AI models, including open-source models.",
+        "Such requirements could restrict the models or datasets available through Hugging Face, require changes to Hugging Face’s platform or practices, delay or restrict offerings, increase compliance costs or result in investigations or enforcement actions.",
+        "Many of the world’s most popular and successful open-source models originated in China and are then downloaded, revised, fine-tuned, and tested by developers in the United States and worldwide.",
+        "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition.",
+        "Any of these risks could limit our ability to realize the expected benefits of the acquisition or have a material impact on our business, operating results and financial condition.",
+        "Certain statements in this Current Report on Form 8-K, including, but not limited to, statements as to: NVIDIA’s proposed acquisition of Hugging Face, including expected timing, anticipated benefits and post-closing plans, and other statements that are not historical facts are forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended, which are subject to the “safe harbor” created by those sections based on management’s beliefs and assumptions and on information currently available to management and are subject to risks and uncertainties that could cause results to be",
+        "materially different than expectations.",
+        "Important factors that could cause actual results to differ materially include: global economic and political conditions; NVIDIA’s reliance on third parties to manufacture, assemble, package and test NVIDIA’s products; the impact of technological development and competition; development of new products and technologies or enhancements to NVIDIA’s existing products and technologies; market acceptance of NVIDIA’s products or NVIDIA’s partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of NVIDIA’s products or technologies when integrated into systems; NVIDIA’s ability to realize the potential benefits of business investments or acquisitions; and changes in applicable laws and regulations, as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission (the “SEC”) including, but not limited to, its most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q.",
+        "Copies of reports filed with the SEC are posted on NVIDIA’s website and are available from NVIDIA without charge.",
+        "These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances."
+       ],
+       "limits": "Exact containment after whitespace/quote normalization. Rephrased prior risks count as new; this is a deterministic text difference, not a judgment of materiality."
+      },
+      "xbrl": {
+       "status": "ok",
+       "accession": "0001045810-26-000075",
+       "form": "10-Q",
+       "report_date": "2026-07-26",
+       "observations": [
+        {
+         "status": "resolved",
+         "taxonomy": "us-gaap",
+         "tag": "Revenues",
+         "unit": "USD",
+         "value": "96221000000",
+         "start": "2026-04-27",
+         "end": "2026-07-26",
+         "duration_days": 90,
+         "basis": "quarter",
+         "accession": "0001045810-26-000075",
+         "form": "10-Q",
+         "filed": "2026-08-26",
+         "filing_fiscal_year": 2027,
+         "filing_fiscal_period": "Q2",
+         "report_period_end": "2026-07-26",
+         "is_current_period": true,
+         "fiscal_year": 2027,
+         "fiscal_period": "Q2",
+         "frame": "CY2026Q2",
+         "notes": []
+        },
+        {
+         "status": "resolved",
+         "taxonomy": "us-gaap",
+         "tag": "Revenues",
+         "unit": "USD",
+         "value": "177837000000",
+         "start": "2026-01-26",
+         "end": "2026-07-26",
+         "duration_days": 181,
+         "basis": "half_year_ytd",
+         "accession": "0001045810-26-000075",
+         "form": "10-Q",
+         "filed": "2026-08-26",
+         "filing_fiscal_year": 2027,
+         "filing_fiscal_period": "Q2",
+         "report_period_end": "2026-07-26",
+         "is_current_period": true,
+         "fiscal_year": 2027,
+         "fiscal_period": "Q2",
+         "frame": null,
+         "notes": []
+        },
+        {
+         "status": "resolved",
+         "taxonomy": "us-gaap",
+         "tag": "CashAndCashEquivalentsAtCarryingValue",
+         "unit": "USD",
+         "value": "22443000000",
+         "start": null,
+         "end": "2026-07-26",
+         "duration_days": null,
+         "basis": "instant",
+         "accession": "0001045810-26-000075",
+         "form": "10-Q",
+         "filed": "2026-08-26",
+         "filing_fiscal_year": 2027,
+         "filing_fiscal_period": "Q2",
+         "report_period_end": "2026-07-26",
+         "is_current_period": true,
+         "fiscal_year": 2027,
+         "fiscal_period": "Q2",
+         "frame": "CY2026Q2I",
+         "notes": []
+        }
+       ],
+       "retrieved_at": "2026-10-18T01:41:33.440668Z"
+      }
+     },
+     "assessment": {
+      "assessment_id": "chk_20261018T014125Z:edgar:0001045810-26-000078",
+      "publish_status": "validated",
+      "validation_errors": [],
+      "semantic_entailment_checked": false,
+      "base_standing_version": 1,
+      "evidence": [
+       {
+        "evidence_id": "EV-I1",
+        "role": "driver_impact",
+        "driver_id": "D3",
+        "exact_quote": "Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 3029
+       },
+       {
+        "evidence_id": "EV-I2",
+        "role": "driver_impact",
+        "driver_id": "D5",
+        "exact_quote": "Many of the world’s most popular and successful open-source models originated in China and are then downloaded, revised, fine-tuned, and tested by developers in the United States and worldwide. Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 4577
+       },
+       {
+        "evidence_id": "EV-F1",
+        "role": "observed_fact",
+        "exact_quote": "On September 2, 2026, NVIDIA Corporation (“NVIDIA”) entered into a definitive agreement to acquire Hugging Face, Inc. (“Hugging Face”). Hugging Face operates a platform and community for developing, sharing and deploying open-source models, datasets and applications.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2021
+       },
+       {
+        "evidence_id": "EV-F2",
+        "role": "observed_fact",
+        "exact_quote": "The transaction includes an approximately $11.9 billion purchase price payable to Hugging Face stockholders, subject to certain adjustments, and an equity-based retention program of up to approximately $1.0 billion for Hugging Face employees joining NVIDIA.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2289
+       },
+       {
+        "evidence_id": "EV-F3",
+        "role": "observed_fact",
+        "exact_quote": "The transaction is expected to close in the first half of 2027, subject to the satisfaction or waiver of customary closing conditions, including receipt of required regulatory approvals.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2547
+       },
+       {
+        "evidence_id": "EV-F4",
+        "role": "observed_fact",
+        "exact_quote": "Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 3029
+       },
+       {
+        "evidence_id": "EV-F5",
+        "role": "observed_fact",
+        "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 4771
+       },
+       {
+        "evidence_id": "EV-F6",
+        "role": "observed_fact",
+        "exact_quote": "Demand for open-source foundation models and applications based on them promotes the use of our products worldwide and sustains the Hugging Face platform.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 3636
+       },
+       {
+        "evidence_id": "EV-F7",
+        "role": "observed_fact",
+        "exact_quote": "Certain statements in this Current Report on Form 8-K, including, but not limited to, statements as to: NVIDIA’s proposed acquisition of Hugging Face, including expected timing, anticipated benefits and post-closing plans, and other statements that are not historical facts are forward-looking statements",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 5289
+       }
+      ]
+     },
+     "what_changed": {
+      "event_id": "edgar:0001045810-26-000078",
+      "source_ids": [
+       "sec:0001045810-26-000078:nvda-20260902.htm"
+      ],
+      "affected_drivers": [
+       "D3",
+       "D5"
+      ],
+      "observed_facts": [
+       {
+        "kind": "verbatim_quote",
+        "statement": "NVIDIA entered a definitive agreement on September 2, 2026 to acquire Hugging Face, Inc., an open-source model, dataset and application platform.",
+        "exact_quote": "On September 2, 2026, NVIDIA Corporation (“NVIDIA”) entered into a definitive agreement to acquire Hugging Face, Inc. (“Hugging Face”). Hugging Face operates a platform and community for developing, sharing and deploying open-source models, datasets and applications.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2021
+       },
+       {
+        "kind": "verbatim_quote",
+        "statement": "The transaction includes an approximately $11.9 billion purchase price and an equity-based retention program of up to approximately $1.0 billion.",
+        "exact_quote": "The transaction includes an approximately $11.9 billion purchase price payable to Hugging Face stockholders, subject to certain adjustments, and an equity-based retention program of up to approximately $1.0 billion for Hugging Face employees joining NVIDIA.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2289
+       },
+       {
+        "kind": "verbatim_quote",
+        "statement": "Closing is expected in the first half of 2027, subject to customary conditions including required regulatory approvals.",
+        "exact_quote": "The transaction is expected to close in the first half of 2027, subject to the satisfaction or waiver of customary closing conditions, including receipt of required regulatory approvals.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2547
+       },
+       {
+        "kind": "verbatim_quote",
+        "statement": "NVIDIA committed to keep the platform open, permitting models and datasets of users' choosing and support for other silicon vendors.",
+        "exact_quote": "Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 3029
+       },
+       {
+        "kind": "verbatim_quote",
+        "statement": "NVIDIA discloses that regulatory restrictions on models from any region, including China, could materially affect the Hugging Face platform and NVIDIA's business.",
+        "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 4771
+       },
+       {
+        "kind": "verbatim_quote",
+        "statement": "NVIDIA frames demand for open-source foundation models as promoting use of its products worldwide.",
+        "exact_quote": "Demand for open-source foundation models and applications based on them promotes the use of our products worldwide and sustains the Hugging Face platform.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 3636
+       },
+       {
+        "kind": "verbatim_quote",
+        "statement": "The filing characterizes the acquisition as a proposed transaction in its forward-looking statements.",
+        "exact_quote": "Certain statements in this Current Report on Form 8-K, including, but not limited to, statements as to: NVIDIA’s proposed acquisition of Hugging Face, including expected timing, anticipated benefits and post-closing plans, and other statements that are not historical facts are forward-looking statements",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 5289
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "On September 2, 2026, NVIDIA Corporation (“NVIDIA”) entered into a definitive agreement to acquire Hugging Face, Inc.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "Hugging Face operates a platform and community for developing, sharing and deploying open-source models, datasets and applications.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "The transaction includes an approximately $11.9 billion purchase price payable to Hugging Face stockholders, subject to certain adjustments, and an equity-based retention program of up to approximately $1.0 billion for Hugging Face employees joining NVIDIA.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "The transaction is expected to close in the first half of 2027, subject to the satisfaction or waiver of customary closing conditions, including receipt of required regulatory approvals.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "NVIDIA expects the acquisition to provide additional resources to Hugging Face and support developers building, sharing and deploying open models and applications.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "NVIDIA has committed to, among other things, keep Hugging Face’s platform open, consistent with Hugging Face’s existing practices.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "Risks Related to the Proposed Acquisition of Hugging Face",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "The following risk factor supplements, and should be read together with, the risks relating to acquisitions and other risks described in NVIDIA’s Annual Report on Form 10-K for the fiscal year ended January 25, 2026 and subsequent Quarterly Reports on Form 10-Q.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "Government restrictions may negatively impact our business and the Hugging Face platform.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "Demand for open-source foundation models and applications based on them promotes the use of our products worldwide and sustains the Hugging Face platform.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "deterministic_text_diff",
+        "statement": "We are committed to promoting the training, distribution, and use of both closed and open-source AI models and applications.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "compared_with": [
+         "0001045810-26-000075",
+         "0001045810-26-000021"
+        ]
+       },
+       {
+        "kind": "xbrl",
+        "tag": "Revenues",
+        "basis": "quarter",
+        "value": "96221000000",
+        "unit": "USD",
+        "start": "2026-04-27",
+        "end": "2026-07-26",
+        "fiscal_year": 2027,
+        "fiscal_period": "Q2",
+        "accession": "0001045810-26-000075"
+       },
+       {
+        "kind": "xbrl",
+        "tag": "Revenues",
+        "basis": "half_year_ytd",
+        "value": "177837000000",
+        "unit": "USD",
+        "start": "2026-01-26",
+        "end": "2026-07-26",
+        "fiscal_year": 2027,
+        "fiscal_period": "Q2",
+        "accession": "0001045810-26-000075"
+       },
+       {
+        "kind": "xbrl",
+        "tag": "CashAndCashEquivalentsAtCarryingValue",
+        "basis": "instant",
+        "value": "22443000000",
+        "unit": "USD",
+        "start": null,
+        "end": "2026-07-26",
+        "fiscal_year": 2027,
+        "fiscal_period": "Q2",
+        "accession": "0001045810-26-000075"
+       }
+      ],
+      "what_changed": [
+       "NVIDIA agreed to acquire Hugging Face, an open-source model and dataset platform, for an approximately $11.9 billion purchase price plus an up-to-approximately $1.0 billion equity retention program; close expected in the first half of 2027 subject to regulatory approvals.",
+       "New risk language identifies restrictions on models originating in any region, including China, as a possible material constraint on the Hugging Face platform and on NVIDIA's business.",
+       "NVIDIA commits to keep the Hugging Face platform open and to support other silicon vendors — ecosystem reach expands, but not as an exclusive NVIDIA hardware lock-in.",
+       "The deterministic diff shows these sentences are new relative to the Q2 FY2027 10-Q and FY2026 10-K; no revenue, margin, licensing or China sales disclosure is added."
+      ],
+      "direction": "unresolved",
+      "materiality": "medium",
+      "driver_impacts": [
+       {
+        "driver_id": "D3",
+        "relation": "unresolved",
+        "materiality": "medium",
+        "reasoning": "The acquisition, if closed, expands NVIDIA's open-source ecosystem footprint, which is consistent with D3's premise that ecosystem expansion supports adoption. But the same filing commits to keep the platform open and to 'support other silicon vendors', which undercuts any inference that the ecosystem reinforces NVIDIA hardware lock-in, and the deterministic diff shows no disclosed customer migration, adoption loss, pricing pressure or benchmark change. No falsifier of D3 is addressed. The document does not resolve whether ecosystem expansion strengthens or dilutes the software/system advantage.",
+        "exact_quote": "Under this commitment, Hugging Face would continue to permit model makers, developers, and users to upload and download models and datasets of their choosing and to support other silicon vendors."
+       },
+       {
+        "driver_id": "D5",
+        "relation": "unresolved",
+        "materiality": "low",
+        "reasoning": "D5 concerns commercially meaningful China sales within regulatory and licensing constraints. The filing adds only a disclosed risk that restrictions on models derived from any region, including China, could materially affect the platform and NVIDIA's business. A disclosed risk factor is a possibility, not a reported constraint or outcome; no China revenue, licensing status, permitted-product change or sales effect is stated, and the deterministic diff shows nothing else on China. D5.F1 is not triggered, and the core assumption is neither confirmed nor refuted.",
+        "exact_quote": "Many of the world’s most popular and successful open-source models originated in China and are then downloaded, revised, fine-tuned, and tested by developers in the United States and worldwide. Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition."
+       }
+      ],
+      "counter_reading": "One could read the acquisition and the open-platform commitment as evidence NVIDIA is deliberately converting ecosystem centrality — not hardware lock-in — into its durable advantage: controlling the dominant open-model distribution channel lets it influence developer defaults and tooling even while supporting rival silicon, which would strengthen rather than merely preserve D3. On D5, the explicit discussion of China-origin open models could be read as NVIDIA flagging that its China exposure now runs through model provenance regulation, a new vector that could restrict access even without hardware export controls.",
+      "uncertainties": [
+       "The transaction is pending; closing in the first half of 2027 is subject to regulatory approvals, so no integration, revenue or cost effect is established by this filing.",
+       "The 8-K gives no information on how Hugging Face revenue, retention costs or goodwill would be recorded, nor how the approximately $11.9 billion purchase price compares to any prior valuation.",
+       "Whether the open-platform and multi-silicon commitment is enforceable or practically limits NVIDIA's ability to favor its own hardware is not stated.",
+       "No China revenue, licensing status, permitted-product change or sales effect is disclosed; W5.1 remains a monitoring gap and independent export-control verification (W5.2) is outside this document.",
+       "W3.1 gaps persist: company platform claims cannot verify market share, real workload TCO or switching costs, and no disclosed competitor benchmark or workload-migration data appears here.",
+       "Consistent with the prior context note, NVIDIA's FY2027 Q3 outlook of no assumed Data Center compute revenue from China is not addressed or updated by this filing."
+      ],
+      "proposed_action": "keep_unresolved",
+      "proposed_delta": null,
+      "proposal_reason": "The 8-K is a genuine new event (confirmed by the deterministic diff) that touches D3's ecosystem premise and D5's China-risk framing, but it reports a pending acquisition and disclosed risks rather than outcomes. No D3 or D5 falsifier is triggered, and nothing in the document materially contradicts or confirms the core assumptions. The questions therefore stay open pending close and subsequent disclosures; the Standing statement need not be reworded.",
+      "what_to_watch_next": [
+       "Whether the acquisition closes in the first half of 2027 and what regulatory approvals or conditions attach to it.",
+       "Post-close disclosures on how Hugging Face is integrated, monetized and whether the open/multi-silicon commitment is maintained in practice.",
+       "NVIDIA's China revenue, licensing status and permitted-product disclosures in the next two quarterly filings for any movement against D5.F1.",
+       "Competitive disclosures on adoption, pricing and workload migration, plus independent third-party benchmark evidence for D3.F2 and D3.F3.",
+       "Whether NVIDIA's Q3 FY2027 outlook still assumes no Data Center compute revenue from China, and any update or recovery path disclosed."
+      ],
+      "publish_status": "validated",
+      "validation_errors": [],
+      "automatic_thesis_mutation": false
+     }
+    }
+   ],
+   "structural_noise": [
+    {
+     "accession": "0001921094-26-000969",
+     "form": "144",
+     "filing_date": "2026-08-31",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001628280-26-060177",
+     "form": "144",
+     "filing_date": "2026-09-02",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001696841-26-000010",
+     "form": "4",
+     "filing_date": "2026-09-02",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001199039-26-000012",
+     "form": "4",
+     "filing_date": "2026-09-02",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0002152188-26-000003",
+     "form": "3",
+     "filing_date": "2026-09-03",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001197647-26-000009",
+     "form": "4",
+     "filing_date": "2026-09-04",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001199039-26-000014",
+     "form": "4",
+     "filing_date": "2026-09-08",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0002152188-26-000005",
+     "form": "4",
+     "filing_date": "2026-09-11",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001958244-26-000615",
+     "form": "144",
+     "filing_date": "2026-09-17",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001197649-26-000012",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001588670-26-000014",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001696841-26-000012",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001283854-26-000010",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001243821-26-000007",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001921094-26-001040",
+     "form": "144",
+     "filing_date": "2026-09-21",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001199039-26-000016",
+     "form": "4",
+     "filing_date": "2026-09-22",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001696841-26-000014",
+     "form": "4",
+     "filing_date": "2026-09-23",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001197647-26-000011",
+     "form": "4",
+     "filing_date": "2026-10-09",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0002152188-26-000007",
+     "form": "4/A",
+     "filing_date": "2026-10-13",
+     "reason": "third_party_ownership_report"
+    }
+   ],
+   "model_calls": [
+    {
+     "call_id": "edgar:0001104659-26-103913:triage",
+     "stage": "triage",
+     "event_id": "edgar:0001104659-26-103913",
+     "executor": "hosted_function",
+     "requested_model": "deepseek-flash",
+     "response_model": "deepseek-flash",
+     "usage": {
+      "prompt_tokens": 2933,
+      "completion_tokens": 95,
+      "total_tokens": 3028,
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 2933
+     },
+     "latency_ms": 1260,
+     "finish_reason": "stop",
+     "prompt_sha256": "84bfa95dde2af6e3ef3feba5c62033800e7f262d1b34f84d34b7763da36b3e7e",
+     "context_sha256": "4747ebf81457527fe27444d534bb276a54b24782c9c6ccb2d89c44d99f654cbd",
+     "raw_output_sha256": "df8f48122853833d3b9cfe4b971b79b1b411aa707742357fc8f60482ee590480",
+     "executor_revision": "44193ee5a529f1e460deaa6b43aed6baa64c7d13"
+    },
+    {
+     "call_id": "edgar:0001045810-26-000078:triage",
+     "stage": "triage",
+     "event_id": "edgar:0001045810-26-000078",
+     "executor": "hosted_function",
+     "requested_model": "deepseek-flash",
+     "response_model": "deepseek-flash",
+     "usage": {
+      "prompt_tokens": 3663,
+      "completion_tokens": 308,
+      "total_tokens": 3971,
+      "prompt_cache_hit_tokens": 512,
+      "prompt_cache_miss_tokens": 3151
+     },
+     "latency_ms": 2081,
+     "finish_reason": "stop",
+     "prompt_sha256": "84bfa95dde2af6e3ef3feba5c62033800e7f262d1b34f84d34b7763da36b3e7e",
+     "context_sha256": "7f13995cd44ba0fa01e160c1e57293e5cfad998df06d120b7ec06ad4128555c9",
+     "raw_output_sha256": "2c739cff7ce6441743ab3e9895ec4ee2a8abc11216325b53a542c44a90c56a8c",
+     "executor_revision": "44193ee5a529f1e460deaa6b43aed6baa64c7d13"
+    },
+    {
+     "call_id": "edgar:0001045810-26-000078:assess",
+     "stage": "assess",
+     "event_id": "edgar:0001045810-26-000078",
+     "executor": "hosted_function",
+     "requested_model": "deepseek-flash",
+     "response_model": "deepseek-flash",
+     "usage": {
+      "prompt_tokens": 5917,
+      "completion_tokens": 1967,
+      "total_tokens": 7884,
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 5917
+     },
+     "latency_ms": 9939,
+     "finish_reason": "stop",
+     "prompt_sha256": "f7c3459c503f7d726a07e20c9ce8e3f62890875ab4cc3730835524fdf78e6f50",
+     "context_sha256": "eefc515fd4b2b3a36ad0152f98f45968678ae4303542a907b6de12fe7825fbb5",
+     "raw_output_sha256": "0bc1c0eaa2e2d12bfe78e46c797253548b44f26b3778844c30a1781b07815801",
+     "executor_revision": "44193ee5a529f1e460deaa6b43aed6baa64c7d13"
+    }
+   ]
+  },
+  {
+   "run_id": "chk_20261018T014209Z_rerun",
+   "run_at": "2026-10-18T01:42:09.655321Z",
+   "as_of": "2026-10-16T00:00:00Z",
+   "mode": "historical_replay",
+   "schema_version": "evidence-check-run-0.1",
+   "record_sha256": "d7c57cda347b8fa933c91faa40bc3817de887e4ac0d168baf26d827f8cc693d4",
+   "standing": {
+    "baseline_id": "NVDA_PRODUCT_BASELINE_V1",
+    "version": 1,
+    "baseline_content_sha256": "634b812149c40bc129221b0ba451e210319fdc17847e1b80a8c91528777150ee",
+    "check_standing_sha256": "786fa09a21eb5af82b7063b03a89fe426969278dbcc5b769a6fe521a463b0291",
+    "approval": "owner_approved (content approval recorded 2026-10-15T02:06:32Z)",
+    "evidence_through": "2026-08-26"
+   },
+   "window": {
+    "rule": "filing_date > evidence_through and every acceptance reading <= as_of",
+    "evidence_through": "2026-08-26",
+    "as_of": "2026-10-16T00:00:00Z",
+    "excluded_after_as_of_count": 0,
+    "excluded_after_as_of": []
+   },
+   "checkpoint": {
+    "path": "checkpoint.json",
+    "scope": "NVDA:sec_edgar:cik1045810",
+    "reviewed_through_before": "2026-10-16T00:00:00Z",
+    "reviewed_through_after": "2026-10-16T00:00:00Z",
+    "processed_before": 2,
+    "processed_after": 2,
+    "blocked_by": []
+   },
+   "funnel": {
+    "in_window": 21,
+    "fetched": 2,
+    "stage0_kept": 0,
+    "stage0_filtered": {
+     "duplicate_already_processed": 2,
+     "third_party_ownership_report": 19
+    },
+    "stage0_failed": 0,
+    "relevant": 0,
+    "uncertain": 0,
+    "irrelevant": 0,
+    "proposals": 0
+   },
+   "totals": {
+    "model_calls": 0,
+    "deep_research_calls": 0,
+    "triage_calls": 0,
+    "tokens": "no model calls",
+    "cost": "not measured (provider pricing not verified in this run)",
+    "latency_ms": 2222
+   },
+   "prompts": {
+    "triage": {
+     "file": "backend/prompts/evidence_check_triage.md",
+     "sha256": "92410fa65eb9012ce5b8ad7f88b34f7c7ac5ffa419d769a08cec5006a236ffa8"
+    },
+    "assess": {
+     "file": "backend/prompts/evidence_check_assess.md",
+     "sha256": "c8b3b4b56bf419cf4eb2b1783ead4acd6d6619dd17b3c66e73d40ad29e116c7f"
+    }
+   },
+   "environment": {
+    "code_revision": "44193ee5a529f1e460deaa6b43aed6baa64c7d13",
+    "extractor": "stdlib-text-0.1",
+    "sec_user_agent": "configured (contact redacted)",
+    "model_knowledge_cutoff": "not observable; contamination probe deferred",
+    "nvidia_ir": "not used: investor.nvidia.com answered a Cloudflare challenge (HTTP 403) to automated requests; SEC exhibits used instead"
+   },
+   "errors": [],
+   "events": [
+    {
+     "event_id": "edgar:0001104659-26-103913",
+     "accession": "0001104659-26-103913",
+     "form": "N-PX",
+     "filing_date": "2026-08-31",
+     "report_date": "2026-06-30",
+     "items": null,
+     "filer_name": "NVIDIA CORP",
+     "content_checksum": "d692ebf347f55468e8f29f70a7b7d8879c9a4f16ea386b7077a65a10ab853eee",
+     "timestamps": {
+      "header_acceptance_utc": "2026-08-31T20:32:07Z",
+      "edgar_submissions_acceptance_raw": "2026-09-01T00:32:07.000Z",
+      "retrieved_at": "2026-10-18T01:42:11.027378+00:00"
+     },
+     "stage0": {
+      "result": "filtered",
+      "reason": "duplicate_already_processed",
+      "first_run_id": "chk_20261018T014125Z"
+     },
+     "sources": [
+      {
+       "source_id": "sec:0001104659-26-103913:primary_doc.xml",
+       "filename": "primary_doc.xml",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000110465926103913/primary_doc.xml",
+       "sha256": "1fb715d2926e58b4e1d23e038fb9ed24b431d737ac91395c4d277f3b79e99fef",
+       "bytes": 2012,
+       "retrieved_at": "2026-10-18T01:42:11.027378+00:00",
+       "text_sha256": "04612d77a44ad95b2db83c678db48e4157124e58e3f0a29484e43b323948232b"
+      },
+      {
+       "source_id": "sec:0001104659-26-103913:proxytable.xml",
+       "filename": "proxytable.xml",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000110465926103913/proxytable.xml",
+       "sha256": "88d0c2a730e4fc24afdfb725e07a182a63a106651d547ac55ee350fb72c85bd7",
+       "bytes": 3429,
+       "retrieved_at": "2026-10-18T01:42:11.235647+00:00",
+       "text_sha256": "45d2f14050926d55027ff9e14411a78d7205b4f11266892e9c123db722cdc7e3"
+      }
+     ]
+    },
+    {
+     "event_id": "edgar:0001045810-26-000078",
+     "accession": "0001045810-26-000078",
+     "form": "8-K",
+     "filing_date": "2026-09-03",
+     "report_date": "2026-09-02",
+     "items": "8.01",
+     "filer_name": "NVIDIA CORP",
+     "content_checksum": "f1994fe7bca9b7b2e8a611ad1dbd5319e9564ba593d4698af0d2b971ccdd13e2",
+     "timestamps": {
+      "header_acceptance_utc": "2026-09-03T12:03:56Z",
+      "edgar_submissions_acceptance_raw": "2026-09-03T16:03:56.000Z",
+      "retrieved_at": "2026-10-18T01:42:11.872809+00:00"
+     },
+     "stage0": {
+      "result": "filtered",
+      "reason": "duplicate_already_processed",
+      "first_run_id": "chk_20261018T014125Z"
+     },
+     "sources": [
+      {
+       "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+       "filename": "nvda-20260902.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+       "sha256": "10b53264c5b24bb03b1e97a4ceb2ff60077b5a52f50a7070772672e2eddc51a2",
+       "bytes": 29288,
+       "retrieved_at": "2026-10-18T01:42:11.872809+00:00",
+       "text_sha256": "ca041bff0d4c0ecdc3631fa61743baaf327b51c1977da0d1f2c8a13bb7d3407b"
+      }
+     ]
+    }
+   ],
+   "structural_noise": [
+    {
+     "accession": "0001921094-26-000969",
+     "form": "144",
+     "filing_date": "2026-08-31",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001628280-26-060177",
+     "form": "144",
+     "filing_date": "2026-09-02",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001696841-26-000010",
+     "form": "4",
+     "filing_date": "2026-09-02",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001199039-26-000012",
+     "form": "4",
+     "filing_date": "2026-09-02",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0002152188-26-000003",
+     "form": "3",
+     "filing_date": "2026-09-03",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001197647-26-000009",
+     "form": "4",
+     "filing_date": "2026-09-04",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001199039-26-000014",
+     "form": "4",
+     "filing_date": "2026-09-08",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0002152188-26-000005",
+     "form": "4",
+     "filing_date": "2026-09-11",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001958244-26-000615",
+     "form": "144",
+     "filing_date": "2026-09-17",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001197649-26-000012",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001588670-26-000014",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001696841-26-000012",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001283854-26-000010",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001243821-26-000007",
+     "form": "4",
+     "filing_date": "2026-09-18",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001921094-26-001040",
+     "form": "144",
+     "filing_date": "2026-09-21",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001199039-26-000016",
+     "form": "4",
+     "filing_date": "2026-09-22",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001696841-26-000014",
+     "form": "4",
+     "filing_date": "2026-09-23",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0001197647-26-000011",
+     "form": "4",
+     "filing_date": "2026-10-09",
+     "reason": "third_party_ownership_report"
+    },
+    {
+     "accession": "0002152188-26-000007",
+     "form": "4/A",
+     "filing_date": "2026-10-13",
+     "reason": "third_party_ownership_report"
+    }
+   ],
+   "model_calls": []
+  },
+  {
+   "run_id": "chk_20261018T032025Z_reassess",
+   "run_at": "2026-10-18T03:20:25.332695Z",
+   "as_of": "2026-10-16T00:00:00Z",
+   "mode": "historical_replay_reassessment",
+   "schema_version": "evidence-check-run-0.2",
+   "record_sha256": "9bf43b4089ace6db17a6a537c813f48165e5bb03d48cf28352c55b51b3dd89b8",
+   "standing": {
+    "baseline_id": "NVDA_PRODUCT_BASELINE_V1",
+    "version": 1,
+    "kind": "owner_approved",
+    "baseline_content_sha256": "634b812149c40bc129221b0ba451e210319fdc17847e1b80a8c91528777150ee",
+    "check_standing_sha256": "786fa09a21eb5af82b7063b03a89fe426969278dbcc5b769a6fe521a463b0291",
+    "approval": "owner_approved (content approval recorded 2026-10-15T02:06:32Z)",
+    "effective_at": "2026-10-15T02:06:32Z",
+    "evidence_through": "2026-08-26"
+   },
+   "window": {
+    "rule": "filing_date > evidence_through and every acceptance reading <= as_of",
+    "evidence_through": "2026-08-26",
+    "as_of": "2026-10-16T00:00:00Z",
+    "restricted_to_event_id": "edgar:0001045810-26-000078",
+    "excluded_after_as_of_count": 0,
+    "excluded_after_as_of": []
+   },
+   "supersedes": {
+    "run_id": "chk_20261018T014125Z",
+    "record_sha256": "7b6aa4a0e7fa828b1a99772389a81bab27a2f1c8d996575decf9f3239b2d29ee",
+    "event_id": "edgar:0001045810-26-000078",
+    "outcome_before": "assessed_validated",
+    "assessment_id_before": "chk_20261018T014125Z:edgar:0001045810-26-000078",
+    "reason": "Watch Item-level reclassification under triage-context-0.2: the first run linked W3.1 and W5.1 on shared topic words (acquisition; China-origin models) that do not answer those Watch Item questions.",
+    "original_record_unchanged": true
+   },
+   "checkpoint": {
+    "path": "checkpoint.json",
+    "scope": "NVDA:sec_edgar:cik1045810",
+    "reviewed_through_before": "2026-10-16T00:00:00Z",
+    "reviewed_through_after": "2026-10-16T00:00:00Z",
+    "processed_before": 2,
+    "processed_after": 2,
+    "blocked_by": []
+   },
+   "funnel": {
+    "in_window": 1,
+    "fetched": 1,
+    "stage0_kept": 1,
+    "stage0_filtered": {},
+    "stage0_failed": 0,
+    "watch_item_evidence": 0,
+    "driver_context": 1,
+    "uncertain": 0,
+    "irrelevant": 0,
+    "rejected": 0,
+    "demoted_by_code": 0,
+    "proposals": 0
+   },
+   "totals": {
+    "model_calls": 1,
+    "deep_research_calls": 0,
+    "triage_calls": 1,
+    "tokens": {
+     "completion_tokens": 288,
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 4316,
+     "prompt_tokens": 4316,
+     "total_tokens": 4604
+    },
+    "cost": "not measured (provider pricing not verified in this run)",
+    "latency_ms": 4262
+   },
+   "prompts": {
+    "triage": {
+     "contract": "triage-context-0.2",
+     "file": "backend/prompts/evidence_check_triage_v2.md",
+     "sha256": "62d6a1e11ab2a65d88032edaa9a2613b1aa1e2cc550b012e313bbe06932b9a52"
+    },
+    "assess": {
+     "contract": "assess-context-0.2",
+     "file": "backend/prompts/evidence_check_assess_v2.md",
+     "sha256": "ea326c518ed1e4cadd541cd70dce2bb886d62c221a94d82596138d69d7b4890f"
+    }
+   },
+   "environment": {
+    "code_revision": "0f0f41c19bd9212e3922483d0bef77bb2e7e15a2",
+    "extractor": "stdlib-text-0.1",
+    "sec_user_agent": "configured (contact redacted)",
+    "model_knowledge_cutoff": "not observable; contamination probe deferred",
+    "nvidia_ir": "not used: investor.nvidia.com answered a Cloudflare challenge (HTTP 403) to automated requests; SEC exhibits used instead"
+   },
+   "errors": [],
+   "events": [
+    {
+     "event_id": "edgar:0001045810-26-000078",
+     "accession": "0001045810-26-000078",
+     "form": "8-K",
+     "filing_date": "2026-09-03",
+     "report_date": "2026-09-02",
+     "items": "8.01",
+     "filer_name": "NVIDIA CORP",
+     "content_checksum": "f1994fe7bca9b7b2e8a611ad1dbd5319e9564ba593d4698af0d2b971ccdd13e2",
+     "outcome": "driver_context_noted",
+     "decision_status": "no_decision_required",
+     "timestamps": {
+      "header_acceptance_utc": "2026-09-03T12:03:56Z",
+      "edgar_submissions_acceptance_raw": "2026-09-03T16:03:56.000Z",
+      "retrieved_at": "2026-10-18T03:20:26.491366+00:00"
+     },
+     "stage0": {
+      "result": "candidate",
+      "reason": "eligible_issuer_document"
+     },
+     "sources": [
+      {
+       "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+       "filename": "nvda-20260902.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+       "sha256": "10b53264c5b24bb03b1e97a4ceb2ff60077b5a52f50a7070772672e2eddc51a2",
+       "bytes": 29288,
+       "retrieved_at": "2026-10-18T03:20:26.491366+00:00",
+       "text_sha256": "ca041bff0d4c0ecdc3631fa61743baaf327b51c1977da0d1f2c8a13bb7d3407b"
+      }
+     ],
+     "stage1": {
+      "result": "driver_context",
+      "contract": "triage-context-0.2",
+      "validation_errors": [],
+      "output": {
+       "classification": "driver_context",
+       "watch_item_answers": [],
+       "uncertain_watch_item_ids": [],
+       "driver_context": [
+        {
+         "driver_id": "D3",
+         "note": "Describes an acquisition of an open-source model platform and a commitment to keep it open, but discloses no NVIDIA adoption loss, workload migration or competitive pricing pressure.",
+         "exact_quote": "NVIDIA expects the acquisition to provide additional resources to Hugging Face and support developers building, sharing and deploying open models and applications."
+        },
+        {
+         "driver_id": "D5",
+         "note": "Mentions Chinese-origin open-source models and possible regulatory restriction, but states no reported China exposure, sales, licensing status or permitted-product change.",
+         "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition."
+        }
+       ],
+       "rationale": "The 8-K reports NVIDIA's agreement to acquire Hugging Face, an open-source model platform, and discloses regulatory risk to open-source models (including models originating in China). It relates to the software/ecosystem and regulatory-risk subject matter but reports no NVIDIA Data Center revenue, schedule change, margin, competitive-loss or China sales/licensing figures, so it does not answer any monitorable Watch Item question."
+      },
+      "model_classification": "driver_context",
+      "effective": {
+       "classification": "driver_context",
+       "watch_item_answers": [],
+       "uncertain_watch_item_ids": [],
+       "driver_context": [
+        {
+         "driver_id": "D3",
+         "note": "Describes an acquisition of an open-source model platform and a commitment to keep it open, but discloses no NVIDIA adoption loss, workload migration or competitive pricing pressure.",
+         "exact_quote": "NVIDIA expects the acquisition to provide additional resources to Hugging Face and support developers building, sharing and deploying open models and applications."
+        },
+        {
+         "driver_id": "D5",
+         "note": "Mentions Chinese-origin open-source models and possible regulatory restriction, but states no reported China exposure, sales, licensing status or permitted-product change.",
+         "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition."
+        }
+       ],
+       "demoted_answers": [],
+       "gap_watch_item_ids": [],
+       "changed_by_code": false
+      },
+      "quote_bindings": [
+       {
+        "role": "driver_context",
+        "ref": "D3",
+        "exact_quote": "NVIDIA expects the acquisition to provide additional resources to Hugging Face and support developers building, sharing and deploying open models and applications.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 2734
+       },
+       {
+        "role": "driver_context",
+        "ref": "D5",
+        "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition.",
+        "source_id": "sec:0001045810-26-000078:nvda-20260902.htm",
+        "offset": 4771
+       }
+      ]
+     },
+     "context": {
+      "driver_ids": [
+       "D3",
+       "D5"
+      ],
+      "notes": [
+       {
+        "driver_id": "D3",
+        "note": "Describes an acquisition of an open-source model platform and a commitment to keep it open, but discloses no NVIDIA adoption loss, workload migration or competitive pricing pressure.",
+        "exact_quote": "NVIDIA expects the acquisition to provide additional resources to Hugging Face and support developers building, sharing and deploying open models and applications."
+       },
+       {
+        "driver_id": "D5",
+        "note": "Mentions Chinese-origin open-source models and possible regulatory restriction, but states no reported China exposure, sales, licensing status or permitted-product change.",
+        "exact_quote": "Any regulatory control or other restriction that limits our ability to provide products and services that support models derived from any region, including China, could have a material impact on Hugging Face’s platform, as well as a material impact on our business, operating results, and financial condition."
+       }
+      ],
+      "demoted_answers": []
+     },
+     "research": {
+      "executed": false,
+      "deep_research_calls": 0,
+      "reason": "no_watch_item_answered",
+      "note": "Driver context is recorded for the reader; it reopens no research need."
+     }
+    }
+   ],
+   "structural_noise": [],
+   "model_calls": [
+    {
+     "call_id": "edgar:0001045810-26-000078:triage",
+     "stage": "triage",
+     "event_id": "edgar:0001045810-26-000078",
+     "executor": "hosted_function",
+     "requested_model": "deepseek-flash",
+     "response_model": "deepseek-flash",
+     "usage": {
+      "prompt_tokens": 4316,
+      "completion_tokens": 288,
+      "total_tokens": 4604,
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 4316
+     },
+     "latency_ms": 2485,
+     "finish_reason": "stop",
+     "prompt_sha256": "68a63b0491c7f2a05c4e183e01197299be4d19a7bae4f945b42110db595f9b3e",
+     "context_sha256": "2111a9214cfbd466dffb7ce318c72c9a145de940d6ed8650ec84f4227b385162",
+     "raw_output_sha256": "55d4ede67b952b806da7461d35e7b8997441dac3dbb782d10a9b1f62476bddb2",
+     "executor_revision": "0f0f41c19bd9212e3922483d0bef77bb2e7e15a2"
+    }
+   ]
+  }
+ ],
+ "annotations": [
+  {
+   "id": "AN-1",
+   "run_id": "chk_20261018T014125Z",
+   "record_sha256": "7b6aa4a0e7fa828b1a99772389a81bab27a2f1c8d996575decf9f3239b2d29ee",
+   "event_id": "edgar:0001045810-26-000078",
+   "pointer": "/events/5/stage1/output/watch_item_ids",
+   "quoted": "[\"W3.1\",\"W5.1\"]",
+   "kind": "classification_superseded",
+   "text": "Not a Watch Item-level positive. The 8-K answers neither W3.1 (no disclosed adoption loss, workload migration or pricing pressure) nor W5.1 (restrictions on China-origin models are not constraints on NVIDIA's China sales). Reviewer, blind annotator and agent labels agree: driver context (D3). See INDEPENDENT_LABELS.md.",
+   "superseded_by_run_id": "chk_20261018T032025Z_reassess",
+   "created_at": "2026-10-18T03:30:00Z",
+   "author": "Claude Code (PR #20 acceptance corrections); not an Owner annotation"
+  },
+  {
+   "id": "AN-2",
+   "run_id": "chk_20261018T014125Z",
+   "record_sha256": "7b6aa4a0e7fa828b1a99772389a81bab27a2f1c8d996575decf9f3239b2d29ee",
+   "event_id": "edgar:0001045810-26-000078",
+   "pointer": "/events/5/assessment/assessment/uncertainties/3",
+   "quoted": "W5.1 remains a monitoring gap",
+   "kind": "model_factual_error",
+   "text": "Incorrect: W5.1 is monitorable from NVIDIA's own filings; the monitoring gap under D5.F1 is W5.2. Recorded model text is left unchanged. From triage-context-0.2 on, gaps are derived by code and passed to the model.",
+   "created_at": "2026-10-18T03:30:00Z",
+   "author": "Claude Code (PR #20 acceptance corrections); not an Owner annotation"
+  },
+  {
+   "id": "AN-3",
+   "run_id": "chk_20261018T014125Z",
+   "record_sha256": "7b6aa4a0e7fa828b1a99772389a81bab27a2f1c8d996575decf9f3239b2d29ee",
+   "event_id": "edgar:0001045810-26-000078",
+   "pointer": "/events/5/assessment/assessment/driver_impacts/0/reasoning",
+   "quoted": "the deterministic diff shows no disclosed customer migration",
+   "kind": "model_overstatement",
+   "text": "Overstated: a sentence-novelty diff shows which sentences are new; it cannot show that something is absent. The v0.2 assessment prompt states this rule.",
+   "created_at": "2026-10-18T03:30:00Z",
+   "author": "Claude Code (PR #20 acceptance corrections); not an Owner annotation"
+  },
+  {
+   "id": "AN-4",
+   "run_id": "chk_20261018T014125Z",
+   "record_sha256": "7b6aa4a0e7fa828b1a99772389a81bab27a2f1c8d996575decf9f3239b2d29ee",
+   "event_id": "edgar:0001045810-26-000078",
+   "pointer": "/events/5/decision_status",
+   "quoted": "awaiting_owner_decision",
+   "kind": "decision_request_withdrawn",
+   "text": "Withdrawn: this assessment was reached through Watch Item links that do not hold and is superseded by the reassessment run, which found driver context only. No Owner investment decision is requested for this event; the decide command refuses superseded assessments.",
+   "superseded_by_run_id": "chk_20261018T032025Z_reassess",
+   "created_at": "2026-10-18T03:30:00Z",
+   "author": "Claude Code (PR #20 acceptance corrections); not an Owner annotation"
+  }
+ ],
+ "decisions": [],
+ "standing_versions": 1,
+ "scenarios": [
+  {
+   "id": "H20_2025",
+   "runs": [
+    {
+     "run_id": "chk_20261018T032044Z_t0_h20",
+     "run_at": "2026-10-18T03:20:44.589229Z",
+     "as_of": "2025-04-16T02:00:00Z",
+     "mode": "historical_t0_scenario",
+     "schema_version": "evidence-check-run-0.2",
+     "record_sha256": "478bd5e39f4c4edf5a878d50122318c831ecdd016d6db496ad3e6a50fcb765c2",
+     "standing": {
+      "baseline_id": "NVDA_T0_SCENARIO_H20_2025",
+      "version": 1,
+      "kind": "historical_t0_scenario",
+      "baseline_content_sha256": "d3eacf6a8065571821368f1e13b6d9832fe1fa82614ba9f44703169b65fa60f3",
+      "check_standing_sha256": "4a40d448edb4bbf7cd3ead5a27a6a54e67fad68f645557ea4f030d3c26100211",
+      "approval": "not_owner_approved (historical_t0_scenario H20_2025, T0 2025-04-15T00:00:00Z, authored 2026-10-18T03:40:00Z)",
+      "effective_at": "2025-04-15T00:00:00Z",
+      "evidence_through": "2025-04-14",
+      "provenance": {
+       "kind": "historical_t0_scenario",
+       "owner_approved": false,
+       "scenario_id": "H20_2025",
+       "label": "Historical T0 scenario: the approved Watch Items applied at 2025-04-15, before NVIDIA's H20 licence 8-K",
+       "effective_at": "2025-04-15T00:00:00Z",
+       "authored_at": "2026-10-18T03:40:00Z",
+       "rationale": "The live window (filings after 2026-08-26, accepted by 2026-10-16) holds no NVIDIA filing that answers an approved Watch Item. This scenario exercises the Watch Item-evidence path on a real earlier filing. T0 was chosen after the fact to precede a known filing, so it tests recognition and grounding, not discovery.",
+       "hindsight_note": "The Watch Item wording was authored in October 2026, after T0, and the assessing model may know later events. The scenario tests whether the cascade recognises direct Watch Item evidence; it is not a forecast test.",
+       "point_in_time_rule": "Every filing used is accepted by EDGAR at or before as_of; the scenario Standing contains no fact dated after evidence_through.",
+       "derivation": "statement, drivers, falsifiers and Watch Items copied verbatim from the approved projection; sources, source_ids, context_notes and boundaries removed"
+      }
+     },
+     "window": {
+      "rule": "filing_date > evidence_through and every acceptance reading <= as_of",
+      "evidence_through": "2025-04-14",
+      "as_of": "2025-04-16T02:00:00Z",
+      "excluded_after_as_of_count": 357
+     },
+     "checkpoint": {
+      "path": "checkpoint.json",
+      "scope": "NVDA:sec_edgar:cik1045810",
+      "reviewed_through_before": null,
+      "reviewed_through_after": "2025-04-16T02:00:00Z",
+      "processed_before": 0,
+      "processed_after": 1,
+      "blocked_by": []
+     },
+     "funnel": {
+      "in_window": 1,
+      "fetched": 1,
+      "stage0_kept": 1,
+      "stage0_filtered": {},
+      "stage0_failed": 0,
+      "watch_item_evidence": 1,
+      "driver_context": 0,
+      "uncertain": 0,
+      "irrelevant": 0,
+      "rejected": 0,
+      "demoted_by_code": 0,
+      "proposals": 0
+     },
+     "totals": {
+      "model_calls": 2,
+      "deep_research_calls": 1,
+      "triage_calls": 1,
+      "tokens": {
+       "completion_tokens": 2051,
+       "prompt_cache_hit_tokens": 1152,
+       "prompt_cache_miss_tokens": 6768,
+       "prompt_tokens": 7920,
+       "total_tokens": 9971
+      },
+      "cost": "not measured (provider pricing not verified in this run)",
+      "latency_ms": 14441
+     },
+     "prompts": {
+      "triage": {
+       "contract": "triage-context-0.2",
+       "file": "backend/prompts/evidence_check_triage_v2.md",
+       "sha256": "62d6a1e11ab2a65d88032edaa9a2613b1aa1e2cc550b012e313bbe06932b9a52"
+      },
+      "assess": {
+       "contract": "assess-context-0.2",
+       "file": "backend/prompts/evidence_check_assess_v2.md",
+       "sha256": "ea326c518ed1e4cadd541cd70dce2bb886d62c221a94d82596138d69d7b4890f"
+      }
+     },
+     "environment": {
+      "code_revision": "0f0f41c19bd9212e3922483d0bef77bb2e7e15a2",
+      "extractor": "stdlib-text-0.1",
+      "sec_user_agent": "configured (contact redacted)",
+      "model_knowledge_cutoff": "not observable; contamination probe deferred",
+      "nvidia_ir": "not used: investor.nvidia.com answered a Cloudflare challenge (HTTP 403) to automated requests; SEC exhibits used instead"
+     },
+     "errors": [],
+     "events": [
+      {
+       "event_id": "edgar:0001045810-25-000082",
+       "accession": "0001045810-25-000082",
+       "form": "8-K",
+       "filing_date": "2025-04-15",
+       "report_date": "2025-04-09",
+       "items": "8.01",
+       "filer_name": "NVIDIA CORP",
+       "content_checksum": "a27e8689a952257920e5c28413aafbc358508106ee5f92bdb9089f1314214cae",
+       "outcome": "assessed_validated",
+       "decision_status": "awaiting_owner_decision",
+       "timestamps": {
+        "header_acceptance_utc": "2025-04-15T21:22:59Z",
+        "edgar_submissions_acceptance_raw": "2025-04-16T01:22:59.000Z",
+        "retrieved_at": "2026-10-18T03:20:45.808000+00:00"
+       },
+       "stage0": {
+        "result": "candidate",
+        "reason": "eligible_issuer_document"
+       },
+       "sources": [
+        {
+         "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+         "filename": "nvda-20250409.htm",
+         "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/nvda-20250409.htm",
+         "sha256": "cecc5995df5dd504c8716a5c98e6b2f2b1066caf999e1f8f26b6eaaa1a8d59dc",
+         "bytes": 22965,
+         "retrieved_at": "2026-10-18T03:20:45.808000+00:00",
+         "text_sha256": "8b12607d177c5325e75af6fc6f06783c357c1500cbca72699a19ca6248125522"
+        }
+       ],
+       "stage1": {
+        "result": "watch_item_evidence",
+        "contract": "triage-context-0.2",
+        "validation_errors": [],
+        "output": {
+         "classification": "watch_item_evidence",
+         "watch_item_answers": [
+          {
+           "watch_item_id": "W5.1",
+           "answers": "NVIDIA discloses a USG-imposed license requirement for China exports of H20 and equivalent circuits, indefinitely in effect, with up to ~$5.5 billion in first-quarter charges — a reported licensing constraint on China sales.",
+           "exact_quote": "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof."
+          }
+         ],
+         "uncertain_watch_item_ids": [],
+         "driver_context": [],
+         "rationale": "The 8-K reports the USG's new license requirement for H20 exports to China and the resulting charges, directly bearing on W5.1 (NVIDIA-disclosed China licensing constraints). It does not disclose Data Center revenue/growth, schedule revisions, competitive loss, or GAAP margins, so other drivers' Watch Items are unanswered; supply/transition risk language is boilerplate."
+        },
+        "model_classification": "watch_item_evidence",
+        "effective": {
+         "classification": "watch_item_evidence",
+         "watch_item_answers": [
+          {
+           "watch_item_id": "W5.1",
+           "answers": "NVIDIA discloses a USG-imposed license requirement for China exports of H20 and equivalent circuits, indefinitely in effect, with up to ~$5.5 billion in first-quarter charges — a reported licensing constraint on China sales.",
+           "exact_quote": "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof."
+          }
+         ],
+         "uncertain_watch_item_ids": [],
+         "driver_context": [],
+         "demoted_answers": [],
+         "gap_watch_item_ids": [
+          "W5.2"
+         ],
+         "changed_by_code": false
+        },
+        "quote_bindings": [
+         {
+          "role": "answer",
+          "ref": "W5.1",
+          "exact_quote": "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2016
+         }
+        ]
+       },
+       "scope": {
+        "total_research_needs": 13,
+        "monitorable_research_needs": 5,
+        "total_drivers": 5,
+        "affected_watch_item_ids": [
+         "W5.1"
+        ],
+        "affected_driver_ids": [
+         "D5"
+        ],
+        "reopened_research_need_ids": [
+         "N5.1"
+        ],
+        "gap_research_need_ids": [
+         "N5.2"
+        ],
+        "gap_rule": "unobservable Watch Items under the same falsifiers (derived by code)",
+        "skipped_research_need_ids": [
+         "N1.1",
+         "N1.2",
+         "N1.3",
+         "N1.4",
+         "N2.1",
+         "N2.2",
+         "N3.1",
+         "N3.2",
+         "N3.3",
+         "N3.4",
+         "N4.1"
+        ]
+       },
+       "research": {
+        "executed": true,
+        "deep_research_calls": 1,
+        "section_items": [
+         "8.01"
+        ],
+        "stated_amounts": [
+         {
+          "quoted": "$5.5 billion",
+          "value_usd": "5500000000",
+          "sentence": "First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves."
+         }
+        ],
+        "derived": [
+         {
+          "formula": "$5.5 billion / Revenues (Q3 FY2025, quarter)",
+          "numerator_usd": "5500000000",
+          "denominator_usd": "35082000000",
+          "percent": "15.7"
+         }
+        ],
+        "risk_factor_diff": {
+         "method": "normalized sentence containment against full prior 10-Q/10-K text",
+         "compared_with": [
+          {
+           "accession": "0001045810-24-000316",
+           "form": "10-Q",
+           "filing_date": "2024-11-20",
+           "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000316/nvda-20241027.htm",
+           "sha256": "ffe629e61f912c71f34dffc36e9a29f13a3fe441fa2eca6009756929de231aa1",
+           "text_sha256": "20d0900c6d39a222463fc9404db7f4097f718ff05bf34b854f5d6273034b8d2f"
+          },
+          {
+           "accession": "0001045810-25-000023",
+           "form": "10-K",
+           "filing_date": "2025-02-26",
+           "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm",
+           "sha256": "9a2a18a706185b63e0a81887a9d464b498e5b9b9c7e60ae8d4f631cad0073fb0",
+           "text_sha256": "4f210212874faef3d59dd301d790926c281f068163abf8c1f4781fcf061d1e95"
+          }
+         ],
+         "sentence_count": 9,
+         "new_sentence_count": 9,
+         "present_sentence_count": 0,
+         "new_sentences": [
+          "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof.",
+          "The USG indicated that the license requirement addresses the risk that the covered products may be used in, or diverted to, a supercomputer in China.",
+          "On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future.",
+          "The Company’s first quarter of fiscal year 2026 ends on April 27, 2025.",
+          "First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves.",
+          "Certain statements in this Current Report on Form 8-K including statements regarding the USG’s intentions and the impact of the license requirement on the Company’s first quarter financial results are forward-looking statements that are subject to risks and uncertainties that could cause results to be materially different than expectations.",
+          "Important factors that could cause actual results to differ materially include: global economic conditions; our reliance on third parties to manufacture, assemble, package and test our products; the impact of technological development and competition; development of new products and technologies or enhancements to our existing product and technologies; market acceptance of our products or our partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of our products or technologies when integrated into systems; as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission, or SEC, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q.",
+          "Copies of reports filed with the SEC are posted on the company’s website and are available from NVIDIA without charge.",
+          "These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances."
+         ],
+         "limits": "Exact containment after whitespace/quote normalization. Rephrased prior risks count as new; this is a deterministic text difference, not a judgment of materiality."
+        },
+        "xbrl": {
+         "status": "ok",
+         "accession": "0001045810-24-000316",
+         "form": "10-Q",
+         "report_date": "2024-10-27",
+         "observations": [
+          {
+           "status": "resolved",
+           "taxonomy": "us-gaap",
+           "tag": "Revenues",
+           "unit": "USD",
+           "value": "35082000000",
+           "start": "2024-07-29",
+           "end": "2024-10-27",
+           "duration_days": 90,
+           "basis": "quarter",
+           "accession": "0001045810-24-000316",
+           "form": "10-Q",
+           "filed": "2024-11-20",
+           "filing_fiscal_year": 2025,
+           "filing_fiscal_period": "Q3",
+           "report_period_end": "2024-10-27",
+           "is_current_period": true,
+           "fiscal_year": 2025,
+           "fiscal_period": "Q3",
+           "frame": null,
+           "notes": []
+          },
+          {
+           "tag": "Revenues",
+           "basis": "half_year_ytd",
+           "status": "unresolved"
+          },
+          {
+           "status": "resolved",
+           "taxonomy": "us-gaap",
+           "tag": "CashAndCashEquivalentsAtCarryingValue",
+           "unit": "USD",
+           "value": "9107000000",
+           "start": null,
+           "end": "2024-10-27",
+           "duration_days": null,
+           "basis": "instant",
+           "accession": "0001045810-24-000316",
+           "form": "10-Q",
+           "filed": "2024-11-20",
+           "filing_fiscal_year": 2025,
+           "filing_fiscal_period": "Q3",
+           "report_period_end": "2024-10-27",
+           "is_current_period": true,
+           "fiscal_year": 2025,
+           "fiscal_period": "Q3",
+           "frame": "CY2024Q3I",
+           "notes": []
+          }
+         ],
+         "retrieved_at": "2026-10-18T03:20:49.078217Z"
+        }
+       },
+       "assessment": {
+        "assessment_id": "chk_20261018T032044Z_t0_h20:edgar:0001045810-25-000082",
+        "assessment_sha256": "e29c9ba3e5db1a4a8402333a4a1fc80ea0e69f6723b662d000a620e3d39c34a0",
+        "publish_status": "validated",
+        "validation_errors": [],
+        "semantic_entailment_checked": false,
+        "base_standing_version": 1,
+        "standing_kind": "historical_t0_scenario",
+        "evidence": [
+         {
+          "evidence_id": "EV-I1",
+          "role": "driver_impact",
+          "driver_id": "D5",
+          "exact_quote": "On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2577
+         },
+         {
+          "evidence_id": "EV-F1",
+          "role": "observed_fact",
+          "exact_quote": "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2016
+         },
+         {
+          "evidence_id": "EV-F2",
+          "role": "observed_fact",
+          "exact_quote": "The USG indicated that the license requirement addresses the risk that the covered products may be used in, or diverted to, a supercomputer in China.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2427
+         },
+         {
+          "evidence_id": "EV-F3",
+          "role": "observed_fact",
+          "exact_quote": "On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2577
+         },
+         {
+          "evidence_id": "EV-F4",
+          "role": "observed_fact",
+          "exact_quote": "First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2771
+         },
+         {
+          "evidence_id": "EV-F5",
+          "role": "observed_fact",
+          "exact_quote": "These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 4296
+         }
+        ]
+       },
+       "what_changed": {
+        "event_id": "edgar:0001045810-25-000082",
+        "source_ids": [
+         "sec:0001045810-25-000082:nvda-20250409.htm"
+        ],
+        "affected_drivers": [
+         "D5"
+        ],
+        "observed_facts": [
+         {
+          "kind": "verbatim_quote",
+          "statement": "The USG told NVIDIA on April 9, 2025 that a license is required to export H20 integrated circuits and circuits achieving comparable memory or interconnect bandwidth to China (including Hong Kong and Macau), D:5 countries, and companies headquartered or ultimately parented there.",
+          "exact_quote": "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2016
+         },
+         {
+          "kind": "verbatim_quote",
+          "statement": "The stated rationale is the risk that covered products may be used in, or diverted to, a supercomputer in China.",
+          "exact_quote": "The USG indicated that the license requirement addresses the risk that the covered products may be used in, or diverted to, a supercomputer in China.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2427
+         },
+         {
+          "kind": "verbatim_quote",
+          "statement": "On April 14, 2025 the USG said the license requirement will be in effect for the indefinite future.",
+          "exact_quote": "On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2577
+         },
+         {
+          "kind": "verbatim_quote",
+          "statement": "First-quarter fiscal 2026 results (quarter ending April 27, 2025) are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments and related reserves.",
+          "exact_quote": "First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 2771
+         },
+         {
+          "kind": "verbatim_quote",
+          "statement": "The filing is a forward-looking 8-K that disclaims any obligation to update; the charge figure is an expectation, not a reported result.",
+          "exact_quote": "These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "offset": 4296
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "The USG indicated that the license requirement addresses the risk that the covered products may be used in, or diverted to, a supercomputer in China.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "The Company’s first quarter of fiscal year 2026 ends on April 27, 2025.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "Certain statements in this Current Report on Form 8-K including statements regarding the USG’s intentions and the impact of the license requirement on the Company’s first quarter financial results are forward-looking statements that are subject to risks and uncertainties that could cause results to be materially different than expectations.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "Important factors that could cause actual results to differ materially include: global economic conditions; our reliance on third parties to manufacture, assemble, package and test our products; the impact of technological development and competition; development of new products and technologies or enhancements to our existing product and technologies; market acceptance of our products or our partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of our products or technologies when integrated into systems; as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission, or SEC, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "Copies of reports filed with the SEC are posted on the company’s website and are available from NVIDIA without charge.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "deterministic_text_diff",
+          "statement": "These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances.",
+          "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+          "compared_with": [
+           "0001045810-24-000316",
+           "0001045810-25-000023"
+          ]
+         },
+         {
+          "kind": "xbrl",
+          "tag": "Revenues",
+          "basis": "quarter",
+          "value": "35082000000",
+          "unit": "USD",
+          "start": "2024-07-29",
+          "end": "2024-10-27",
+          "fiscal_year": 2025,
+          "fiscal_period": "Q3",
+          "accession": "0001045810-24-000316"
+         },
+         {
+          "kind": "xbrl",
+          "tag": "CashAndCashEquivalentsAtCarryingValue",
+          "basis": "instant",
+          "value": "9107000000",
+          "unit": "USD",
+          "start": null,
+          "end": "2024-10-27",
+          "fiscal_year": 2025,
+          "fiscal_period": "Q3",
+          "accession": "0001045810-24-000316"
+         }
+        ],
+        "what_changed": [
+         "NVIDIA disclosed a new USG license requirement covering H20-class exports to China, Hong Kong, Macau and D:5 countries, stated to be in effect for the indefinite future.",
+         "First-quarter fiscal 2026 results are expected to include up to approximately $5.5 billion of charges for H20 inventory, purchase commitments and related reserves.",
+         "The stated USG rationale is supercomputer diversion risk, so the restriction is tied to specific product capability rather than all China sales.",
+         "This is the first observation in the D5.F1 two-quarter window; the falsifier is not yet satisfied."
+        ],
+        "direction": "weaken",
+        "materiality": "high",
+        "driver_impacts": [
+         {
+          "driver_id": "D5",
+          "relation": "weaken",
+          "materiality": "high",
+          "reasoning": "Assessed only via W5.1 ('Does NVIDIA disclose persistent licensing or regulatory constraints that prevent commercially meaningful China sales?'). NVIDIA now discloses a license requirement on H20-class exports to China and D:5 countries, stated to be in effect for the indefinite future, plus up to approximately $5.5 billion of expected H20-related charges. That is a reported licensing constraint on China sales and a signal of stranded inventory, which weakens the core assumption that permitted products and licenses allow commercially meaningful China sales. It falls short of contradiction and of falsifier D5.F1: the falsifier needs two quarterly disclosures and evidence that commercially meaningful sales are prevented with no recovery path; this document is one disclosure, covers one product family, reports no China revenue, gives no licensing outcome, and states the charge as an expectation for a quarter not yet ended.",
+          "exact_quote": "On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future."
+         }
+        ],
+        "counter_reading": "The constraint is narrow and quantified: it targets H20-class products and is justified by supercomputer diversion risk, not by a blanket ban on China AI sales. NVIDIA already sells other architectures inside prior export rules, and a one-time inventory and commitment charge of up to approximately $5.5 billion is a cost of adjusting the product mix, not evidence that commercially meaningful China sales have ceased. On this reading the driver's core assumption survives in narrower form, and D5.F1 needs the two-quarter observation window before any weight is given.",
+        "uncertainties": [
+         "The filing does not state China revenue, the H20 share of Data Center sales, or how much China business remains permitted, so 'commercially meaningful' cannot be measured from this document.",
+         "It does not say whether any licenses have been granted or applied for, what conditions apply, or whether alternative permitted products can serve China customers.",
+         "The up-to-approximately $5.5 billion charge is a forward-looking expectation for the quarter ending April 27, 2025; the realized amount and any revenue impact are unobserved.",
+         "The 'indefinite future' characterization is the company's report of a USG statement; the underlying rule text and its implementation are not in the document.",
+         "Falsifier D5.F1 requires the next two quarterly disclosures; this single 8-K covers at most the opening observation and cannot complete the window.",
+         "Gap Watch Item W5.2 (from triage.gap_watch_item_ids) is not observable in NVIDIA filings and is not addressed here."
+        ],
+        "proposed_action": "keep_unresolved",
+        "proposed_delta": null,
+        "proposal_reason": "This is the first NVIDIA disclosure of a USG license requirement on H20 exports to China, stated to be indefinite, with up to approximately $5.5 billion of expected first-quarter H20-related charges. It creates a negative signal against D5's core assumption, but it does not complete D5.F1, which requires two quarterly disclosures showing constraints that prevent commercially meaningful China sales with no disclosed recovery path. The 8-K reports no China revenue, no realized charge, and no licensing outcomes, and an announced expected charge is not a completed outcome. The Standing statement and D5 therefore stand as written; the falsifier window is now open and the question remains open pending realized quarterly results and licensing status.",
+        "what_to_watch_next": [
+         "NVIDIA's first-quarter fiscal 2026 (quarter ending April 27, 2025) reported results: the realized charge versus the up-to-approximately $5.5 billion expectation, and any disclosed revenue impact.",
+         "Any NVIDIA disclosure of licenses granted, license applications or conditions, or permitted alternative products for China customers.",
+         "Disclosed China and Data Center revenue in the next two quarterly filings, to test whether China sales remain commercially meaningful.",
+         "Whether the license requirement is narrowed, broadened or extended to additional products in subsequent filings.",
+         "Independent USG rule and licensing decisions, which NVIDIA filings cannot establish (and gap Watch Item W5.2 remains unobservable here)."
+        ],
+        "publish_status": "validated",
+        "validation_errors": [],
+        "automatic_thesis_mutation": false
+       }
+      }
+     ],
+     "structural_noise": [],
+     "model_calls": [
+      {
+       "call_id": "edgar:0001045810-25-000082:triage",
+       "stage": "triage",
+       "event_id": "edgar:0001045810-25-000082",
+       "executor": "hosted_function",
+       "requested_model": "deepseek-flash",
+       "response_model": "deepseek-flash",
+       "usage": {
+        "prompt_tokens": 3743,
+        "completion_tokens": 267,
+        "total_tokens": 4010,
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 2591
+       },
+       "latency_ms": 1839,
+       "finish_reason": "stop",
+       "prompt_sha256": "68a63b0491c7f2a05c4e183e01197299be4d19a7bae4f945b42110db595f9b3e",
+       "context_sha256": "637db08dd6940cd859ed2f8e239176b63391fb1d0a2de15a1e31df7d9bd99b8e",
+       "raw_output_sha256": "bc53f2506c2b90a18548b45a78ac64f43cd8725ed71608de2f3c27193f73ebf6",
+       "executor_revision": "0f0f41c19bd9212e3922483d0bef77bb2e7e15a2"
+      },
+      {
+       "call_id": "edgar:0001045810-25-000082:assess",
+       "stage": "assess",
+       "event_id": "edgar:0001045810-25-000082",
+       "executor": "hosted_function",
+       "requested_model": "deepseek-flash",
+       "response_model": "deepseek-flash",
+       "usage": {
+        "prompt_tokens": 4177,
+        "completion_tokens": 1784,
+        "total_tokens": 5961,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4177
+       },
+       "latency_ms": 9488,
+       "finish_reason": "stop",
+       "prompt_sha256": "36a7918aaf157230d55db9d93d3df79b8362b728fbb7b8ffffa6999e934f8273",
+       "context_sha256": "cbaa361980cf5f9e3a8d114eaa6420d9151f7d2522c03126767907b8ce6410d7",
+       "raw_output_sha256": "98fe34cb4e446896d397da45ff38b32838e143458c1e3beef63abd30e15b7544",
+       "executor_revision": "0f0f41c19bd9212e3922483d0bef77bb2e7e15a2"
+      }
+     ]
+    },
+    {
+     "run_id": "chk_20261018T032124Z_t0_h20_rerun",
+     "run_at": "2026-10-18T03:21:24.130724Z",
+     "as_of": "2025-04-16T02:00:00Z",
+     "mode": "historical_t0_scenario",
+     "schema_version": "evidence-check-run-0.2",
+     "record_sha256": "b99b56cc7321c3d40286b4f469659095a355845542055043367bd3bc80f7bfc6",
+     "standing": {
+      "baseline_id": "NVDA_T0_SCENARIO_H20_2025",
+      "version": 1,
+      "kind": "historical_t0_scenario",
+      "baseline_content_sha256": "d3eacf6a8065571821368f1e13b6d9832fe1fa82614ba9f44703169b65fa60f3",
+      "check_standing_sha256": "4a40d448edb4bbf7cd3ead5a27a6a54e67fad68f645557ea4f030d3c26100211",
+      "approval": "not_owner_approved (historical_t0_scenario H20_2025, T0 2025-04-15T00:00:00Z, authored 2026-10-18T03:40:00Z)",
+      "effective_at": "2025-04-15T00:00:00Z",
+      "evidence_through": "2025-04-14",
+      "provenance": {
+       "kind": "historical_t0_scenario",
+       "owner_approved": false,
+       "scenario_id": "H20_2025",
+       "label": "Historical T0 scenario: the approved Watch Items applied at 2025-04-15, before NVIDIA's H20 licence 8-K",
+       "effective_at": "2025-04-15T00:00:00Z",
+       "authored_at": "2026-10-18T03:40:00Z",
+       "rationale": "The live window (filings after 2026-08-26, accepted by 2026-10-16) holds no NVIDIA filing that answers an approved Watch Item. This scenario exercises the Watch Item-evidence path on a real earlier filing. T0 was chosen after the fact to precede a known filing, so it tests recognition and grounding, not discovery.",
+       "hindsight_note": "The Watch Item wording was authored in October 2026, after T0, and the assessing model may know later events. The scenario tests whether the cascade recognises direct Watch Item evidence; it is not a forecast test.",
+       "point_in_time_rule": "Every filing used is accepted by EDGAR at or before as_of; the scenario Standing contains no fact dated after evidence_through.",
+       "derivation": "statement, drivers, falsifiers and Watch Items copied verbatim from the approved projection; sources, source_ids, context_notes and boundaries removed"
+      }
+     },
+     "window": {
+      "rule": "filing_date > evidence_through and every acceptance reading <= as_of",
+      "evidence_through": "2025-04-14",
+      "as_of": "2025-04-16T02:00:00Z",
+      "excluded_after_as_of_count": 357
+     },
+     "checkpoint": {
+      "path": "checkpoint.json",
+      "scope": "NVDA:sec_edgar:cik1045810",
+      "reviewed_through_before": "2025-04-16T02:00:00Z",
+      "reviewed_through_after": "2025-04-16T02:00:00Z",
+      "processed_before": 1,
+      "processed_after": 1,
+      "blocked_by": []
+     },
+     "funnel": {
+      "in_window": 1,
+      "fetched": 1,
+      "stage0_kept": 0,
+      "stage0_filtered": {
+       "duplicate_already_processed": 1
+      },
+      "stage0_failed": 0,
+      "watch_item_evidence": 0,
+      "driver_context": 0,
+      "uncertain": 0,
+      "irrelevant": 0,
+      "rejected": 0,
+      "demoted_by_code": 0,
+      "proposals": 0
+     },
+     "totals": {
+      "model_calls": 0,
+      "deep_research_calls": 0,
+      "triage_calls": 0,
+      "tokens": "no model calls",
+      "cost": "not measured (provider pricing not verified in this run)",
+      "latency_ms": 1468
+     },
+     "prompts": {
+      "triage": {
+       "contract": "triage-context-0.2",
+       "file": "backend/prompts/evidence_check_triage_v2.md",
+       "sha256": "62d6a1e11ab2a65d88032edaa9a2613b1aa1e2cc550b012e313bbe06932b9a52"
+      },
+      "assess": {
+       "contract": "assess-context-0.2",
+       "file": "backend/prompts/evidence_check_assess_v2.md",
+       "sha256": "ea326c518ed1e4cadd541cd70dce2bb886d62c221a94d82596138d69d7b4890f"
+      }
+     },
+     "environment": {
+      "code_revision": "0f0f41c19bd9212e3922483d0bef77bb2e7e15a2",
+      "extractor": "stdlib-text-0.1",
+      "sec_user_agent": "configured (contact redacted)",
+      "model_knowledge_cutoff": "not observable; contamination probe deferred",
+      "nvidia_ir": "not used: investor.nvidia.com answered a Cloudflare challenge (HTTP 403) to automated requests; SEC exhibits used instead"
+     },
+     "errors": [],
+     "events": [
+      {
+       "event_id": "edgar:0001045810-25-000082",
+       "accession": "0001045810-25-000082",
+       "form": "8-K",
+       "filing_date": "2025-04-15",
+       "report_date": "2025-04-09",
+       "items": "8.01",
+       "filer_name": "NVIDIA CORP",
+       "content_checksum": "a27e8689a952257920e5c28413aafbc358508106ee5f92bdb9089f1314214cae",
+       "timestamps": {
+        "header_acceptance_utc": "2025-04-15T21:22:59Z",
+        "edgar_submissions_acceptance_raw": "2025-04-16T01:22:59.000Z",
+        "retrieved_at": "2026-10-18T03:21:25.596558+00:00"
+       },
+       "stage0": {
+        "result": "filtered",
+        "reason": "duplicate_already_processed",
+        "first_run_id": "chk_20261018T032044Z_t0_h20"
+       },
+       "sources": [
+        {
+         "source_id": "sec:0001045810-25-000082:nvda-20250409.htm",
+         "filename": "nvda-20250409.htm",
+         "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/nvda-20250409.htm",
+         "sha256": "cecc5995df5dd504c8716a5c98e6b2f2b1066caf999e1f8f26b6eaaa1a8d59dc",
+         "bytes": 22965,
+         "retrieved_at": "2026-10-18T03:21:25.596558+00:00",
+         "text_sha256": "8b12607d177c5325e75af6fc6f06783c357c1500cbca72699a19ca6248125522"
+        }
+       ]
+      }
+     ],
+     "structural_noise": [],
+     "model_calls": []
+    }
+   ],
+   "annotations": [
+    {
+     "id": "AN-S1",
+     "run_id": "chk_20261018T032044Z_t0_h20",
+     "record_sha256": "478bd5e39f4c4edf5a878d50122318c831ecdd016d6db496ad3e6a50fcb765c2",
+     "event_id": "edgar:0001045810-25-000082",
+     "pointer": "/events/0/assessment/assessment/counter_reading",
+     "quoted": "NVIDIA already sells other architectures inside prior export rules",
+     "kind": "ungrounded_claim",
+     "text": "Not supported by the text the model was shown: the 8-K section does not say what other products NVIDIA sells into China. Likely outside knowledge, which the prompt forbids and the number/quote gates cannot detect. The counter-reading stays as recorded.",
+     "created_at": "2026-10-18T03:30:00Z",
+     "author": "Claude Code (PR #20 acceptance corrections); not an Owner annotation"
+    }
+   ],
+   "decisions": [],
+   "standing_versions": 1
+  }
+ ],
+ "replay_sha256": "2cda55a28da30522539d4df3887f4b69207b54e42006968b3a6ea1351c5ee688"
+}
